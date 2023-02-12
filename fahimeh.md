@@ -1,4 +1,2 @@
-
-I'm going to add a feature related to the news section. the Table can added latest news to the databse.This form allows users to choose the topic and put a link for the news, title and description.
-the culoms can be auto increment id (PK), Topic or category, valid link , description, Tithe of the news.
-the feature would be under the news section.
+my feature:
+I'm going to create a form that allow the users to add their own news articles. and the database to store and manipulate the data.
