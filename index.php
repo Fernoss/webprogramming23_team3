@@ -269,7 +269,28 @@
         </div>
       </div>
     </div>
-
+<!-- PHP feature -->
+<form action="" method="post">
+  <div class="row mb-3">
+        <div class="col">
+            <input class="form-control" type="text" placeholder="Location" name="location" required><br>
+        </div>
+        <div class="col">
+            <input class="form-control" type="text" placeholder="Description" name="description" required><br>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col">
+            <input class="form-control" type="text" placeholder="Link" name="link">
+        </div>
+        <div class="col">
+            <input class="form-control" type="text" placeholder="Image(URL)" name="image"><br>
+        </div>
+    </div>
+  <div class="row">
+    <input class="form-control" type="submit" value="Submit" name="submit" onclick="submitAlert()">
+  </div>
+</form>
     <!-- End of Joonas' Section -->
 
     <!-- Vicky's Section-->
@@ -380,7 +401,7 @@
             </div>
           </div>
         </div>
-        </div>
+    </div>
   
   <!--restuant end-->
     </div>
@@ -627,5 +648,9 @@
 
 </div>
 
-
+<script>
+function submitAlert() {
+  alert("Submit successfully sent!");
+}
+</script>
 <?php include "footer.php" ?>
