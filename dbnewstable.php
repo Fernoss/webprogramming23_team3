@@ -3,7 +3,7 @@
 <?php
 $servername="db";
 $username="addarticle";
-$password="newstable";
+$password="password";
 $dbname="addarticle";
 //creating connection
 $conn=new mysqli ($servername, $username, $password, $dbname);
