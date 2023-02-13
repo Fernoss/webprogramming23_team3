@@ -6,6 +6,9 @@
 body {
   background-color: rgb(36, 55, 99, 255);
 }
+
+/* PHP features */
+
 .navbar {
   background-color: #ff6e31 !important;
 }

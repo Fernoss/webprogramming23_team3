@@ -275,7 +275,7 @@
         <div class="input-group mb-3">
             <span class="input-group-text">Location and Link</span>
             <input type="text" aria-label="Location" name="location" class="form-control" required>
-            <input type="text" aria-label="Link" name="link" class="form-control" required>
+            <input type="text" aria-label="Link" placeholder="https://example.org" name="link" class="form-control" required>
         </div>
     </div>
     <div class="row">
