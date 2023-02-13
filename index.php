@@ -271,21 +271,27 @@
     </div>
 <!-- PHP feature - Location form -->
 <form action="" method="post">
+    <div class="row">
         <div class="input-group mb-3">
             <span class="input-group-text">Location and Link</span>
             <input type="text" aria-label="Location" name="location" class="form-control" required>
             <input type="text" aria-label="Link" name="link" class="form-control" required>
         </div>
+    </div>
+    <div class="row">
         <div class="input-group mb-3">
             <textarea class="form-control" id="decriptionText" placeholder="Description..." name="description" rows="3"></textarea>
         </div>
+    </div>
+    <div class="row">
         <div class="input-group mb-3">
             <input type="file" class="form-control" name="image" id="uploadImage">
             <label class="input-group-text" for="uploadImage">Upload</label>
         </div>
-  <div class="row">
-    <input class="form-control" type="submit" value="Submit" name="submit" onclick="submitAlert()">
-  </div>
+    </div>
+    <div class="row">
+            <input class="form-control" type="submit" value="Submit" name="submit" onclick="submitAlert()">
+    </div>
 </form>
     <!-- End of Joonas' Section -->
 
