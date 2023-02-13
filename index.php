@@ -269,24 +269,20 @@
         </div>
       </div>
     </div>
-<!-- PHP feature -->
+<!-- PHP feature - Location form -->
 <form action="" method="post">
-  <div class="row mb-3">
-        <div class="col">
-            <input class="form-control" type="text" placeholder="Location" name="location" required><br>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Location and Link</span>
+            <input type="text" aria-label="Location" name="location" class="form-control" required>
+            <input type="text" aria-label="Link" name="link" class="form-control" required>
         </div>
-        <div class="col">
-            <input class="form-control" type="text" placeholder="Description" name="description" required><br>
+        <div class="input-group mb-3">
+            <textarea class="form-control" id="decriptionText" placeholder="Description..." name="description" rows="3"></textarea>
         </div>
-    </div>
-    <div class="row mb-3">
-        <div class="col">
-            <input class="form-control" type="text" placeholder="Link" name="link">
+        <div class="input-group mb-3">
+            <input type="file" class="form-control" name="image" id="uploadImage">
+            <label class="input-group-text" for="uploadImage">Upload</label>
         </div>
-        <div class="col">
-            <input class="form-control" type="text" placeholder="Image(URL)" name="image"><br>
-        </div>
-    </div>
   <div class="row">
     <input class="form-control" type="submit" value="Submit" name="submit" onclick="submitAlert()">
   </div>
