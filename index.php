@@ -97,7 +97,7 @@
       </div>
     </div>
           <div class="newsartbtn">
-          <button type="button" class="btn btn-warning">  <a href="" target="_blank">Click here to add news </a></button>
+          <button type="button" class="btn btn-warning">  <a href="newsarticle.php" target="_blank">Click here to add news </a></button>
           </div>  
 
     <!-- End of Fahimeh's section-->
