@@ -81,7 +81,7 @@
                 wilderness, Vasatokka! The trip is from Monday, February 27 to
                 Sunday, March 5 See the incredible nature, enjoy a variety of
                 winter fun in the snow and sauna, learn about life and culture
-                of the North and most importantly, meet Santa and the reindeers!
+                of the North and most importantly, meet Santa and the reindeers.
               </p>
               <button type="button" class="btn btn-outline-warning">
                 <a
