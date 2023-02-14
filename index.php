@@ -97,10 +97,11 @@
       </div>
     </div>
           <div class="newsartbtn">
-          <button type="button" class="btn btn-warning">add your news</button> <br>
+          <button type="button" class="btn btn-warning">Click here to add news</button> <br>
           </div>  
 
     <!-- End of Fahimeh's section-->
+
 
     <!-- Joonas' section -->
     <!-- Creating a section for ID=carousel-->
