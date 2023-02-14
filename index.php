@@ -96,6 +96,10 @@
         </div>
       </div>
     </div>
+          <div class="newsartbtn">
+          <button type="button" class="btn btn-warning">add your news</button> <br>
+          </div>  
+
     <!-- End of Fahimeh's section-->
 
     <!-- Joonas' section -->
