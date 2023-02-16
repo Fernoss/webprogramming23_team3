@@ -1,4 +1,4 @@
-<?php include"header.php" ?>
+<?php include"../webprogramming23_team3/header.php" ?>
 
 <div class="container" id="news">
       <div class="row g-3">
@@ -655,4 +655,4 @@ function submitAlert() {
   alert("Submit successfully sent!");
 }
 </script>
-<?php include "footer.php" ?>
+<?php include "../webprogramming23_team3/footer.php" ?>
