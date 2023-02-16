@@ -1,5 +1,7 @@
 <?php include"header.php" ?>
 
+<!-- Fahimeh's section-->
+
 <div class="container" id="news">
       <div class="row g-3">
         <div class="col-12 col-md-6 col-lg-4">
@@ -96,6 +98,7 @@
         </div>
       </div>
     </div>
+      <!-- add a button below the news section-->
           <div class="newsartbtn">
           <button type="button" class="btn btn-warning">  <a href="newsarticle.php" target="_blank">Click here to add news </a></button>
           </div>  
