@@ -288,3 +288,9 @@ a:hover {
     margin-right: 0 !important;
   }
 }
+
+                                              /* web programming designs */
+.subscribe {
+  display: flex !important; 
+  justify-content: center !important;
+}
