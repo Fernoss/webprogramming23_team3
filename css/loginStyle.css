@@ -1,0 +1,28 @@
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
+}
+}
+
+.labelMod{
+    color:#ff6e31 ;
+}
+
+a{
+    color: #ff6e31;
+    ;
+}
+
+.regSection {
+    background-color: rgb(36, 55, 99, 255);
+  }

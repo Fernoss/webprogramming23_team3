@@ -11,8 +11,9 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../webprogramming23_team3/css/styles.css" />
+    <link rel="stylesheet" href="../webprogramming23_team3/css/loginStyle.css" />
   </head>
-  <body>
+  <body class="bgcol">
     <nav
       class="navbar navbar fixed-top navbar-expand-lg bg-body-tertiary"
       style="background-color: #ff6e31"
@@ -57,8 +58,12 @@
             <li class="nav-item">
               <a class="nav-link" href="#footer"><b>Contact Us</b></a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.php"><b>Log in</b></a>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
-    <section>
+    
+    
