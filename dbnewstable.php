@@ -1,4 +1,4 @@
-<!--Fahimeh php -->
+<!--Fahimeh PHP feature -->
 
 <?php
 $servername="db";
