@@ -57,6 +57,9 @@
             <li class="nav-item">
               <a class="nav-link" href="#footer"><b>Contact Us</b></a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.php"><b>Login in</b></a>
+            </li>
           </ul>
         </div>
       </div>
