@@ -64,4 +64,7 @@
         </div>
       </div>
     </nav>
+    <center>
+      <img class="img-fluid" src="../webprogramming23_team3/pictures/backup_hameenlinna.jpg" alt="hameenlinna" id="header-image"/>
+    </center
     <section>
