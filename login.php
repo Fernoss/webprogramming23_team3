@@ -1,4 +1,4 @@
-<?php include"header1.php" ?>
+<?php include"../webprogramming23_team3/header.php" ?>
 <section class="vh-100" style="padding-top:100px;">
     
   <div class="container-fluid h-custom">
@@ -67,4 +67,4 @@
 
   
 </section>
-<?php include "footer.php" ?>
+<?php include "../webprogramming23_team3/footer.php" ?>
