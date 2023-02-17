@@ -1,4 +1,6 @@
-<?php include"../webprogramming23_team3/header.php" ?>
+<?php
+$title = "Welcome to Hämeenlinna!";
+include"../webprogramming23_team3/header.php" ?>
 
 <div class="container" id="news">
       <div class="row g-3">
