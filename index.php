@@ -1,4 +1,6 @@
-<?php include"header.php" ?>
+<?php
+$title = "Welcome to Hämeenlinna!";
+include"../webprogramming23_team3/header.php" ?>
 
 <center>
       <img class="img-fluid" src="../webprogramming23_team3/pictures/backup_hameenlinna.jpg" alt="hameenlinna" id="header-image"/>
@@ -658,4 +660,4 @@ function submitAlert() {
   alert("Submit successfully sent!");
 }
 </script>
-<?php include "footer.php" ?>
+<?php include "../webprogramming23_team3/footer.php" ?>
