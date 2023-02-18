@@ -11,6 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../webprogramming23_team3/css/styles.css" />
+    <link rel="stylesheet" href="../webprogramming23_team3/css/loginStyle.css" />
   </head>
   <body>
     <nav
