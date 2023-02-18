@@ -1,4 +1,4 @@
-<?php include"header1.php" ?>
+<?php include"header.php" ?>
 <section style="padding-top:100px; padding-bottom:100px">
   <div class="container  regSection" >
     <div class="row d-flex justify-content-center align-items-center h-100">
