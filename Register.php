@@ -1,4 +1,6 @@
-<?php include"header.php" ?>
+<?php include("header.php");
+
+?>
 <section style="padding-top:100px; padding-bottom:100px">
   <div class="container  regSection" >
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -10,12 +12,12 @@
 
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
-                <form class="mx-1 mx-md-4">
+                <form class="mx-1 mx-md-4" method="POST">
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" class="form-control" />
+                      <input type="text" id="fName" class="form-control" />
                       <label class="form-label" for="form3Example1c">First Name</label>
                     </div>
                   </div>
@@ -23,7 +25,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" class="form-control" />
+                      <input type="text" id="lName" class="form-control" />
                       <label class="form-label" for="form3Example1c">Last Name</label>
                     </div>
                   </div>
@@ -31,15 +33,15 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="email" id="form3Example3c" class="form-control" />
-                      <label class="form-label" for="form3Example3c">Your Email</label>
+                      <input type="email" id="email" class="form-control" />
+                      <label class="form-label" for="form3Example3c">Email</label>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4c" class="form-control" />
+                      <input type="password" id="password" class="form-control" />
                       <label class="form-label" for="form3Example4c">Password</label>
                     </div>
                   </div>
@@ -58,10 +60,10 @@
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
                     <select name="category" class="form-control">
-                            <option>Add News</option>
-                            <option>Carousel</option>
-                            <option>Enter organization detail</option>
-                            <option>Enter news letter</option>
+                            <option value="1">Add News</option>
+                            <option value="2">Carousel</option>
+                            <option value="3">Enter organization detail</option>
+                            <option value="4">Enter news letter</option>
                         </select>
                       <label class="form-label" for="form3Example4cd">Select category</label>
                     </div>
@@ -77,11 +79,13 @@
                   </div>
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="button" class="btn btn-primary btn-lg">Register</button>
+                    <input type="submit" name="submit" value="Register" class="btn btn-primary btn-lg">
                   </div>
 
                 </form>
-
+                 
+                        
+              
               </div>
               <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
@@ -95,5 +99,31 @@
       </div>
     </div>
   </div>
+  
+  <?php 
+  include("dbConnection.php");
+  if(isset($_POST['submit'])){
+  $fName=$_POST['fName'];
+  $lName=$_POST['lName'];
+  $email=$_POST['email'];
+  $password=$_POST['password'];
+  $category=$_POST['category'];
+  
+  
+  $sql="INSERT INTO shammi_login(fName, lName, email, password, category) VALUES ('$fName','$lName', '$email','$password, $category')";
+  if($conn->query($sql)==TRUE){
+      echo "Your information is added succesfully";}
+  
+      else {
+          echo "Error :".$conn->error;
+      }
+  
+  }
+  
+  
+  ?>
+  
+  
+  
 </section>
 <?php include "footer.php" ?>
