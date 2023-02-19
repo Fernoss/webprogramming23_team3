@@ -97,6 +97,10 @@
                       height="50"
                   /></a>
                 </p>
+                <p>
+                <a class="btn btn-primary" href="nl_create.php" role="button">Subscribe to <br>newsletter</a>
+
+                </p>
               </div>
             </div>
             <div class="row justify-content-center">

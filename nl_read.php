@@ -21,7 +21,7 @@ if ($result -> num_rows > 0)
     {
             echo "<tr>
                 <td>
-                    <a href = 'nl_update_and_delete.php?id= $row[id]'>$row[id] </a> 
+                    <a href = 'nl_u_and_d.php?email= $row[email]'>$row[email] </a> 
                 </td>     
                 <td>$row[fname]</td> 
                 <td>$row[lname]</td>
