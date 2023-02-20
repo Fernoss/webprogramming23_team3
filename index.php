@@ -127,7 +127,7 @@ include"../webprogramming23_team3/header.php" ?>
         <div class="carousel-inner">
           <div
             class="carousel-item active"
-            style="background-image: url('pictures/slide_1.jpg')"
+            style="background-image: url('../webprogramming23_team3/pictures/slide_1.jpg')"
           >
             <div class="container">
               <h2>Häme castle</h2>
@@ -158,7 +158,7 @@ include"../webprogramming23_team3/header.php" ?>
           </div>
           <div
             class="carousel-item"
-            style="background-image: url('pictures/slide_3.jpg')"
+            style="background-image: url('../webprogramming23_team3/pictures/slide_3.jpg')"
           >
             <div class="container">
               <h2>Häme University of Applied Science</h2>
@@ -172,7 +172,7 @@ include"../webprogramming23_team3/header.php" ?>
           </div>
           <div
             class="carousel-item"
-            style="background-image: url('pictures/slide_4.jpeg')"
+            style="background-image: url('../webprogramming23_team3/pictures/slide_4.jpeg')"
           >
             <div class="container">
               <h2>Aulanko</h2>
@@ -186,7 +186,7 @@ include"../webprogramming23_team3/header.php" ?>
           </div>
           <div
             class="carousel-item"
-            style="background-image: url('pictures/slide_5.jpeg')"
+            style="background-image: url('../webprogramming23_team3/pictures/slide_5.jpeg')"
           >
             <div class="container">
               <h2>Iittala Village</h2>
@@ -200,7 +200,7 @@ include"../webprogramming23_team3/header.php" ?>
           </div>
           <div
             class="carousel-item"
-            style="background-image: url('pictures/slide_6.jpeg')"
+            style="background-image: url('../webprogramming23_team3/pictures/slide_6.jpeg')"
           >
             <div class="container">
               <h2>Know a cool place?</h2>
