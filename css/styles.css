@@ -48,6 +48,49 @@ a {
   display: block;
   color: white;
 }
+/* Carousel section, form */
+form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 10px;
+  color: #eae3d2;
+}
+
+#location input[type="text"],
+#link input[type="url"],
+textarea {
+  padding: 10px;
+  margin: 5px 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+input[type="file"] {
+  margin-bottom: 20px !important;
+  color: #eae3d2;
+}
+
+input.formSubmit {
+  background-color: #ff6e31;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+input[type="submit"]:hover {
+  background-color: #ff6f31e0;
+}
 
 /*news Part*/
 
