@@ -277,7 +277,7 @@ include"../webprogramming23_team3/header.php" ?>
       </div>
     </div>
 <!-- PHP feature - Location form -->
-<form action="" method="post">
+<!-- <form action="" method="post">
     <div class="row">
         <div class="input-group mb-3">
             <span class="input-group-text">Location and Link</span>
@@ -299,7 +299,23 @@ include"../webprogramming23_team3/header.php" ?>
     <div class="row">
             <input class="form-control" type="submit" value="Submit" name="submit" onclick="submitAlert()">
     </div>
+</form> -->
+<form>
+  <label for="location">Location:</label>
+  <input type="text" id="location" name="location" placeholder="Share your location!" required>
+
+  <label for="link">Link:</label>
+  <input type="url" id="link" name="link" placeholder="Enter URL here" required>
+
+  <label for="description">Description:</label>
+  <textarea id="description" name="description" placeholder="Description about the location"></textarea>
+
+  <label for="upload">Upload:</label>
+  <input type="file" id="upload" name="upload" accept=".jpg, .jpeg, .png, .gif" required>
+
+  <br><input class="formSubmit" type="submit" value="Submit">
 </form>
+
     <!-- End of Joonas' Section -->
 
     <!-- Vicky's Section-->
@@ -657,9 +673,9 @@ include"../webprogramming23_team3/header.php" ?>
 
 </div>
 
-<script>
+<!-- <script>
 function submitAlert() {
   alert("Submit successfully sent!");
 }
-</script>
+</script> -->
 <?php include "../webprogramming23_team3/footer.php" ?>
