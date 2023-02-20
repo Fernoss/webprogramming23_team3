@@ -2,6 +2,11 @@
 $title = "Welcome to Hämeenlinna!";
 include"../webprogramming23_team3/header.php" ?>
 
+<center>
+      <img class="img-fluid" src="../webprogramming23_team3/pictures/backup_hameenlinna.jpg" alt="hameenlinna" id="header-image"/>
+</center
+<section>
+
 <div class="container" id="news">
       <div class="row g-3">
         <div class="col-12 col-md-6 col-lg-4">
