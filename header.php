@@ -59,7 +59,7 @@
               <a class="nav-link" href="#footer"><b>Contact Us</b></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="login.php"><b>Login in</b></a>
+              <a class="nav-link" href="../webprogramming23_team3/login.php"><b>Login</b></a>
             </li>
           </ul>
         </div>
