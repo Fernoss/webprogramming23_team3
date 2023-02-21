@@ -54,12 +54,12 @@ if (isset($_POST['submit']))
         
 
 }
-else if (isset($_POST['delete'])){
+/*else if (isset($_POST['delete'])){
 
     include "nl_d.php"; 
 
 } 
-
+*/
 ?>
 
 <?php 
