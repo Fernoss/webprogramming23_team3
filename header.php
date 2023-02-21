@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title><?php echo $title ?></title>
+    <title>Welcome to Hämeenlinna</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -11,6 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../webprogramming23_team3/css/styles.css" />
+    <link rel="stylesheet" href="../webprogramming23_team3/css/loginStyle.css" />
   </head>
   <body>
     <nav
@@ -58,10 +59,9 @@
               <a class="nav-link" href="#footer"><b>Contact Us</b></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../webprogramming23_team3/login.php"><b>Login</b></a>
+              <a class="nav-link" href="login.php"><b>Login in</b></a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    
