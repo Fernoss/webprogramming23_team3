@@ -98,7 +98,7 @@
                   /></a>
                 </p>
                 <p>
-                <a class="btn btn-primary" href="nl_create.php" role="button">Subscribe to <br>newsletter</a>
+                <a class="btn btn-primary" href="news_create.php" role="button">Subscribe to <br>newsletter</a>
 
                 </p>
               </div>
