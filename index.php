@@ -4,7 +4,9 @@ include"../webprogramming23_team3/header.php" ?>
 
 <center>
       <img class="img-fluid" src="../webprogramming23_team3/pictures/backup_hameenlinna.jpg" alt="hameenlinna" id="header-image"/>
-    </center>
+</center
+<section>
+
 <div class="container" id="news">
       <div class="row g-3">
         <div class="col-12 col-md-6 col-lg-4">
@@ -125,7 +127,7 @@ include"../webprogramming23_team3/header.php" ?>
         <div class="carousel-inner">
           <div
             class="carousel-item active"
-            style="background-image: url('pictures/slide_1.jpg')"
+            style="background-image: url('../webprogramming23_team3/pictures/slide_1.jpg')"
           >
             <div class="container">
               <h2>Häme castle</h2>
@@ -156,7 +158,7 @@ include"../webprogramming23_team3/header.php" ?>
           </div>
           <div
             class="carousel-item"
-            style="background-image: url('pictures/slide_3.jpg')"
+            style="background-image: url('../webprogramming23_team3/pictures/slide_3.jpg')"
           >
             <div class="container">
               <h2>Häme University of Applied Science</h2>
@@ -170,7 +172,7 @@ include"../webprogramming23_team3/header.php" ?>
           </div>
           <div
             class="carousel-item"
-            style="background-image: url('pictures/slide_4.jpeg')"
+            style="background-image: url('../webprogramming23_team3/pictures/slide_4.jpeg')"
           >
             <div class="container">
               <h2>Aulanko</h2>
@@ -184,7 +186,7 @@ include"../webprogramming23_team3/header.php" ?>
           </div>
           <div
             class="carousel-item"
-            style="background-image: url('pictures/slide_5.jpeg')"
+            style="background-image: url('../webprogramming23_team3/pictures/slide_5.jpeg')"
           >
             <div class="container">
               <h2>Iittala Village</h2>
@@ -198,7 +200,7 @@ include"../webprogramming23_team3/header.php" ?>
           </div>
           <div
             class="carousel-item"
-            style="background-image: url('pictures/slide_6.jpeg')"
+            style="background-image: url('../webprogramming23_team3/pictures/slide_6.jpeg')"
           >
             <div class="container">
               <h2>Know a cool place?</h2>
@@ -275,29 +277,52 @@ include"../webprogramming23_team3/header.php" ?>
       </div>
     </div>
 <!-- PHP feature - Location form -->
-<form action="" method="post">
-    <div class="row">
-        <div class="input-group mb-3">
-            <span class="input-group-text">Location and Link</span>
-            <input type="text" aria-label="Location" name="location" class="form-control" required>
-            <input type="text" aria-label="Link" placeholder="https://example.org" name="link" class="form-control" required>
-        </div>
-    </div>
-    <div class="row">
-        <div class="input-group mb-3">
-            <textarea class="form-control" id="decriptionText" placeholder="Description..." name="description" rows="3"></textarea>
-        </div>
-    </div>
-    <div class="row">
-        <div class="input-group mb-3">
-            <input type="file" class="form-control" name="image" id="uploadImage">
-            <label class="input-group-text" for="uploadImage">Upload</label>
-        </div>
-    </div>
-    <div class="row">
-            <input class="form-control" type="submit" value="Submit" name="submit" onclick="submitAlert()">
-    </div>
+
+<form method="post">
+  <label for="location">Location:</label>
+  <input type="text" id="location" name="location" placeholder="Share your location!" required>
+
+  <label for="link">Link:</label>
+  <input type="url" id="link" name="link" placeholder="Enter URL here" required>
+
+  <label for="description">Description:</label>
+  <textarea id="description" name="description" placeholder="Description about the location"></textarea>
+
+  <label for="upload">Upload:</label>
+  <input type="file" id="upload" name="image" accept=".jpg, .jpeg, .png, .gif" required>
+
+  <br><input class="formSubmit" name="submit" type="submit" value="Submit">
 </form>
+<?php
+// to start output buffering, because we are using session_start() here and not in the beginning
+ob_start();
+session_start(); // start the session
+
+if(isset($_SESSION['user_id'])) {
+    if(isset($_POST['submit'])) {
+        $location = $_POST['location'];
+        $link = $_POST['link'];
+        $description = $_POST['description'];
+        $image = $_POST['image'];
+        include 'db.php';
+        $sql = "insert into joonas_carousel (location, link, description, image)
+        values('$location','$link','$description', '$image')";
+
+        if($conn -> query($sql) === true){
+            echo "Your information is added successfully!";
+        }
+        else{
+            echo "Error: " . $conn -> error;
+        }
+    }
+} else {
+    // User is not logged in, display an error message
+    echo "Error: You must be logged in to add information.";
+}
+// to send the buffered output to the browser
+ob_end_flush();
+?>
+
     <!-- End of Joonas' Section -->
 
     <!-- Vicky's Section-->
@@ -655,9 +680,9 @@ include"../webprogramming23_team3/header.php" ?>
 
 </div>
 
-<script>
+<!-- <script>
 function submitAlert() {
   alert("Submit successfully sent!");
 }
-</script>
+</script> -->
 <?php include "../webprogramming23_team3/footer.php" ?>
