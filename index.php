@@ -1,4 +1,14 @@
 <?php
+// // start the session, if not already started elsewhere. This will allow us to check
+// // if user is logged in or not.
+// session_start(); 
+// if(isset($_SESSION['user_id'])) {
+// }
+// else {
+//   // User not logged in, redirect to login.php. Using function header().
+//   header("Location: login.php"); 
+//   exit(); // stop executing the code, like break but for the session.
+// }
 $title = "Welcome to Hämeenlinna!";
 include"../webprogramming23_team3/header.php" ?>
 
@@ -277,30 +287,8 @@ include"../webprogramming23_team3/header.php" ?>
       </div>
     </div>
 <!-- PHP feature - Location form -->
-<!-- <form action="" method="post">
-    <div class="row">
-        <div class="input-group mb-3">
-            <span class="input-group-text">Location and Link</span>
-            <input type="text" aria-label="Location" name="location" class="form-control" required>
-            <input type="text" aria-label="Link" placeholder="https://example.org" name="link" class="form-control" required>
-        </div>
-    </div>
-    <div class="row">
-        <div class="input-group mb-3">
-            <textarea class="form-control" id="decriptionText" placeholder="Description..." name="description" rows="3"></textarea>
-        </div>
-    </div>
-    <div class="row">
-        <div class="input-group mb-3">
-            <input type="file" class="form-control" name="image" id="uploadImage">
-            <label class="input-group-text" for="uploadImage">Upload</label>
-        </div>
-    </div>
-    <div class="row">
-            <input class="form-control" type="submit" value="Submit" name="submit" onclick="submitAlert()">
-    </div>
-</form> -->
-<form>
+
+<form method="post">
   <label for="location">Location:</label>
   <input type="text" id="location" name="location" placeholder="Share your location!" required>
 
@@ -311,10 +299,39 @@ include"../webprogramming23_team3/header.php" ?>
   <textarea id="description" name="description" placeholder="Description about the location"></textarea>
 
   <label for="upload">Upload:</label>
-  <input type="file" id="upload" name="upload" accept=".jpg, .jpeg, .png, .gif" required>
+  <input type="file" id="upload" name="image" accept=".jpg, .jpeg, .png, .gif" required>
 
-  <br><input class="formSubmit" type="submit" value="Submit">
+  <br><input class="formSubmit" name="submit" type="submit" value="Submit">
 </form>
+<?php
+// to start output buffering, because we are using session_start() here and not in the beginning
+ob_start();
+session_start(); // start the session
+
+if(isset($_SESSION['user_id'])) {
+    if(isset($_POST['submit'])) {
+        $location = $_POST['location'];
+        $link = $_POST['link'];
+        $description = $_POST['description'];
+        $image = $_POST['image'];
+        include 'db.php';
+        $sql = "insert into joonas_carousel (location, link, description, image)
+        values('$location','$link','$description', '$image')";
+
+        if($conn -> query($sql) === true){
+            echo "Your information is added successfully!";
+        }
+        else{
+            echo "Error: " . $conn -> error;
+        }
+    }
+} else {
+    // User is not logged in, display an error message
+    echo "Error: You must be logged in to add information.";
+}
+// to send the buffered output to the browser
+ob_end_flush();
+?>
 
     <!-- End of Joonas' Section -->
 
