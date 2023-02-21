@@ -1,14 +1,4 @@
 <?php
-// // start the session, if not already started elsewhere. This will allow us to check
-// // if user is logged in or not.
-// session_start(); 
-// if(isset($_SESSION['user_id'])) {
-// }
-// else {
-//   // User not logged in, redirect to login.php. Using function header().
-//   header("Location: login.php"); 
-//   exit(); // stop executing the code, like break but for the session.
-// }
 $title = "Welcome to Hämeenlinna!";
 include"../webprogramming23_team3/header.php" ?>
 
