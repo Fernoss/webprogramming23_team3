@@ -1,4 +1,5 @@
 <?php
+session_start();
 $title = "Welcome to Hämeenlinna!";
 include"../webprogramming23_team3/header.php" ?>
 
@@ -288,25 +289,20 @@ include"../webprogramming23_team3/header.php" ?>
   <label for="description">Description:</label>
   <textarea id="description" name="description" placeholder="Description about the location"></textarea>
 
-  <label for="upload">Upload:</label>
-  <input type="file" id="upload" name="image" accept=".jpg, .jpeg, .png, .gif" required>
-
   <br><input class="formSubmit" name="submit" type="submit" value="Submit">
 </form>
 <?php
 // to start output buffering, because we are using session_start() here and not in the beginning
-ob_start();
-session_start(); // start the session
+ // start the session
 
 if(isset($_SESSION['user_id'])) {
     if(isset($_POST['submit'])) {
         $location = $_POST['location'];
         $link = $_POST['link'];
         $description = $_POST['description'];
-        $image = $_POST['image'];
         include 'db.php';
-        $sql = "insert into joonas_carousel (location, link, description, image)
-        values('$location','$link','$description', '$image')";
+        $sql = "insert into joonas_carousel (location, link, description)
+        values('$location','$link','$description')";
 
         if($conn -> query($sql) === true){
             echo "Your information is added successfully!";
@@ -320,7 +316,6 @@ if(isset($_SESSION['user_id'])) {
     echo "Error: You must be logged in to add information.";
 }
 // to send the buffered output to the browser
-ob_end_flush();
 ?>
 
     <!-- End of Joonas' Section -->
