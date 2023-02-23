@@ -3,12 +3,9 @@ $title = "Newsletter";
 include "header.php"?>
 
 <!-- if section: if login -> show newsletter, if not, ask the user to login -->
-<?php 
-session_start();
-?>
 
 <div id = "subscribe">
-    <h2><br>Subscribe to our newsletter to hear more about our website, 
+    <h2><br><br>Subscribe to our newsletter to hear more about our website, 
     along with many news, tips and recommendations regarding the city of Hämeenlinna</h2>
     <h3>Type in your email address to reassure subscription</h3>
     <!-- Making a form where the user can input their data -->
@@ -43,26 +40,24 @@ if (isset($_POST['submit']))
 
     /* COMPARE EMAIL */
 
-    $sql = "SELECT * FROM shammi_login WHERE email = {$newemail}"; //action to be done 
+    $sql = "SELECT * FROM shammi_login WHERE email = '{$newemail}'"; //action to be done 
     $query = mysqli_query($conn, $sql); //send it as a query 
 
-        $result = mysqli_fetch_array($query); //puts the query into an array --> this is the array that i'll continue to work with 
-    
-        echo $result; 
-
-        if ($result)  //if the action can be done --> if the email addresses can be compared
+        if ($query)  //if the action can be done --> if the email addresses can be compared
         {
-            if ($newemail == $email) {
-                echo "Thank you for subscribing to our newsletter, "; //+ login name --> personalized message 
+            $result = mysqli_fetch_array($query); //puts the query into an array --> this is the array that i'll continue to work with 
+            if ($result) 
+            {
+                $email = $result['email'];
+                echo "Thank you for subscribing to our newsletter, " . $email; //+ login name --> personalized message 
             }
             else {
                 echo "Thank you for subscribing to our newsletter, visitor."; //if didnt recognize the user email --> random visitor
             }
-        } else 
-        {
-            echo "Error." , $conn -> error; 
+        } 
+        else {
+            echo "Error." , $conn -> error;
         }
-
 }
 /*else if (isset($_POST['delete'])){
 
