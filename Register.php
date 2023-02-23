@@ -17,7 +17,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="fName" class="form-control" />
+                      <input type="text" name="fName" class="form-control" />
                       <label class="form-label" for="form3Example1c">First Name</label>
                     </div>
                   </div>
@@ -25,7 +25,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="lName" class="form-control" />
+                      <input type="text" name="lName" class="form-control" />
                       <label class="form-label" for="form3Example1c">Last Name</label>
                     </div>
                   </div>
@@ -33,7 +33,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="email" id="email" class="form-control" />
+                      <input type="email" name="email" class="form-control" />
                       <label class="form-label" for="form3Example3c">Email</label>
                     </div>
                   </div>
@@ -41,7 +41,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="password" class="form-control" />
+                      <input type="password" name="password" class="form-control" />
                       <label class="form-label" for="form3Example4c">Password</label>
                     </div>
                   </div>
@@ -101,25 +101,26 @@
   </div>
   
   <?php 
-  include("dbConnection.php");
+  
   if(isset($_POST['submit'])){
   $fName=$_POST['fName'];
   $lName=$_POST['lName'];
   $email=$_POST['email'];
   $password=$_POST['password'];
   $category=$_POST['category'];
+  include("db.php");
   
-  
-  $sql="INSERT INTO shammi_login(fName, lName, email, password, category) VALUES ('$fName','$lName', '$email','$password, $category')";
-  if($conn->query($sql)==TRUE){
-      echo "Your information is added succesfully";}
+  $sql="insert into shammi_login (fName, lName, email, password, category) 
+  VALUES ('$fName','$lName', '$email','$password, $category')";
+
+      if($conn->query($sql) == true){
+      echo "Your information is added succesfully";
+      }
   
       else {
           echo "Error :".$conn->error;
       }
-  
   }
-  
   
   ?>
   
