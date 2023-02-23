@@ -11,6 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../webprogramming23_team3/css/styles.css" />
+    <link rel="stylesheet" href="../webprogramming23_team3/css/loginStyle.css" />
   </head>
   <body>
     <nav
@@ -57,11 +58,10 @@
             <li class="nav-item">
               <a class="nav-link" href="#footer"><b>Contact Us</b></a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../webprogramming23_team3/login.php"><b>Login</b></a>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
-    <center>
-      <img class="img-fluid" src="../webprogramming23_team3/pictures/backup_hameenlinna.jpg" alt="hameenlinna" id="header-image"/>
-    </center>
-    <section class="text_for_php">
