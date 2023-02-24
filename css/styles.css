@@ -123,6 +123,17 @@ input[type="submit"]:hover {
   margin-left: 40vw !important;
   margin-bottom: 10vh;
   }
+  .btn-warning a{
+    color: #243763;
+  }
+  #newsarticle {
+    width: 60%;
+    margin: auto;
+    margin-top: 90px;
+}
+h5{
+  color: #eae3d2 ;
+}
 /* end of PHP news table */
 /*end of news part*/
 

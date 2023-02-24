@@ -5,7 +5,7 @@ $title="test the news table";
 include 'header.php';
 ?>
 <!--news form linked to the botton which is located under the news section in the website -->
-<form action="" method = "post" >
+<form action="" method = "post" id="newsarticle">
 
     <h5>Add your news here: <br></h5>
 
