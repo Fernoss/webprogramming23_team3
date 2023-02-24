@@ -1,7 +1,7 @@
 <!--Fahimeh php -->
 
 <?php
-$title="test the news table";
+$title="news article";
 include 'header.php';
 ?>
 <!--news form linked to the botton which is located under the news section in the website -->
