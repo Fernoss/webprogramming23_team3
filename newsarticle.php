@@ -42,7 +42,7 @@ if(isset($_POST['submit'])){
     $link=$_POST['link'];
     $description=$_POST['description'];
 
-    include 'dbtable.php';
+    include 'db.php';
     $sql = "insert into newstable (title, category, link, description)
     values('$title', '$category', '$link', '$description')";
     if ($conn ->query($sql)===TRUE){
