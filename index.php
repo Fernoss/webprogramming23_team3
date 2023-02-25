@@ -8,6 +8,8 @@ include"../webprogramming23_team3/header.php" ?>
 </center
 <section>
 
+<!-- Fahimeh's section-->
+
 <div class="container" id="news">
       <div class="row g-3">
         <div class="col-12 col-md-6 col-lg-4">
@@ -89,7 +91,7 @@ include"../webprogramming23_team3/header.php" ?>
                 wilderness, Vasatokka! The trip is from Monday, February 27 to
                 Sunday, March 5 See the incredible nature, enjoy a variety of
                 winter fun in the snow and sauna, learn about life and culture
-                of the North and most importantly, meet Santa and the reindeers!
+                of the North and most importantly, meet Santa and the reindeers.
               </p>
               <button type="button" class="btn btn-outline-warning">
                 <a
@@ -104,7 +106,13 @@ include"../webprogramming23_team3/header.php" ?>
         </div>
       </div>
     </div>
+      <!-- add a button below the news section-->
+          <div class="newsartbtn">
+          <button type="button" class="btn btn-warning">  <a href="newsarticle.php" target="_blank">Click here to add news </a></button>
+          </div>  
+
     <!-- End of Fahimeh's section-->
+
 
     <!-- Joonas' section -->
     <!-- Creating a section for ID=carousel-->

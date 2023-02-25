@@ -115,6 +115,26 @@ input[type="submit"]:hover {
 .card {
   background-color: #ff6e31;
 }
+/* PHP news table */
+.btn-warning {
+  color: #243763 !important;
+  background-color: #ff6e31!important;
+  width: 20vw;
+  margin-left: 40vw !important;
+  margin-bottom: 10vh;
+  }
+  .btn-warning a{
+    color: #243763;
+  }
+  #newsarticle {
+    width: 60%;
+    margin: auto;
+    margin-top: 90px;
+}
+h5{
+  color: #eae3d2 ;
+}
+/* end of PHP news table */
 /*end of news part*/
 
 /* Styles for carousel */
