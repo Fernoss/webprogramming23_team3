@@ -1,6 +1,7 @@
-<?php include("header.php");
-
+<?php
+      include("header.php");
 ?>
+
 <section style="padding-top:100px; padding-bottom:100px">
   <div class="container  regSection" >
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -12,45 +13,52 @@
 
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
-                <form class="mx-1 mx-md-4" method="POST">
+                <form class="mx-1 mx-md-4" method="POST" name="myform" onsubmit="return validateform()">
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" name="fName" class="form-control" />
-                      <label class="form-label" for="form3Example1c">First Name</label>
+                    <label class="form-label" for="form3Example1c">First Name</label> 
+                    <input type="text" name="fName" id="fName"class="form-control" value="">
+                    
+                      
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" name="lName" class="form-control" />
-                      <label class="form-label" for="form3Example1c">Last Name</label>
+                    <label class="form-label" for="form3Example1c">Last Name</label>
+                    <input type="text" name="lName" id="lName"class="form-control" value=""/>
+                     
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="email" name="email" class="form-control" />
-                      <label class="form-label" for="form3Example3c">Email</label>
+                    <label class="form-label" for="form3Example3c">Email</label>
+                    <input type="email" name="email" class="form-control" value=""  >
+                    
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" name="password" class="form-control" />
-                      <label class="form-label" for="form3Example4c">Password</label>
+                    <label class="form-label" for="form3Example3c">password</label>
+                    <input type="password" id="pswd" name="pswd"class="form-control" value="">
+                    
                     </div>
+                    
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4cd" class="form-control" />
-                      <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                    <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                      <input type="password" id="checkPassword" name="checkPassword"class="form-control" value="" />
+                      
                     </div>
                   </div>
 
@@ -59,13 +67,14 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
+                    <label class="form-label" for="form3Example4cd">Select category</label>
                     <select name="category" class="form-control">
                             <option value="1">Add News</option>
                             <option value="2">Carousel</option>
                             <option value="3">Enter organization detail</option>
                             <option value="4">Enter news letter</option>
                         </select>
-                      <label class="form-label" for="form3Example4cd">Select category</label>
+                      
                     </div>
                   </div>
 
@@ -79,7 +88,7 @@
                   </div>
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <input type="submit" name="submit" value="Register" class="btn btn-primary btn-lg">
+                    <input type="submit" name="Submit" id="Submit" value="Register" class="btn btn-primary btn-lg">
                   </div>
 
                 </form>
@@ -100,31 +109,89 @@
     </div>
   </div>
   
-  <?php 
-  
-  if(isset($_POST['submit'])){
-  $fName=$_POST['fName'];
-  $lName=$_POST['lName'];
-  $email=$_POST['email'];
-  $password=$_POST['password'];
-  $category=$_POST['category'];
-  include("db.php");
-  
-  $sql="insert into shammi_login (fName, lName, email, password, category) 
-  VALUES ('$fName','$lName', '$email','$password, $category')";
+<!-- Insert register date into database-->
 
-      if($conn->query($sql) == true){
-      echo "Your information is added succesfully";
-      }
+<?php 
+if(isset($_POST['Submit'])){
+$fName=$_POST['fName'];
+$lName=$_POST['lName'];
+$email=$_POST['email'];
+$pw=$_POST['pswd'];
+$category=$_POST['category'];
+
+include("db.php");
+
+$sql="INSERT INTO shammi_login (fName, lName, email, password, category) 
+  VALUES ('$fName','$lName', '$email','$pw', '$category')";
+
+     
+if($conn->query($sql)==TRUE){
+  echo("<SCRIPT LANGUAGE='JavaScript'>
+  window.alert('Successfully Registered!')
+  </SCRIPT>");
   
-      else {
-          echo "Error :".$conn->error;
-      }
   }
+
+    else {
+            echo "Error :".$conn->error; 
+    }
+
+}
+
+
+?>
+
+<!-- Validate the form data-->
+<script type = "text/javascript">
+    function validateform(){  
+
+//validating name
+let name=document.myform.fName.value;  
+// to check if name is empty of not  
+if (name==null || name==""){  
+  alert("Name can't be blank");  
+  return false;  
+}
+// to check if first name has atleast 5 characters
+else if(name.length<2){  
+    alert("Name can't less than 2 characters");  
+    return false;  
+  }
+// // to ensure name cannot be more than 5 characters
+
+let lastname=document.myform.lName.value;  
+// to check if last name is empty of not  
+if (lastname==null || lastname==""){  
+  alert("Last Name can't be blank");  
+  return false;  
+}
+
+
+ //validating email 
+ let email=document.myform.email.value;
+    if (email==null || email==""){  
+        alert("Email can't be blank");  
+        return false;  
+      }
+
+    //validating password
+    let password=document.myform.pswd.value;  
+    let password1=document.myform.checkPassword.value;
+    if (password==null || password=="" || password.length<8){  
+        alert("Password is required and it must have 8 characters");  
+        return false;  
+      }
+    else if (password!== password1) {
+      alert("Passwords do not match");  
+        return false; 
+    }
+}  
+</script>
+<!--end of form validation-->
+
+ 
   
-  ?>
   
-  
-  
-</section>
+
+
 <?php include "footer.php" ?>
