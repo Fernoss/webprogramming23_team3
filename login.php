@@ -1,6 +1,78 @@
 <?php
 $title = "Login";
-include"../webprogramming23_team3/header.php" ?>
+
+
+if(isset($_POST['submit']) || !empty($_POST['submit']) || ($_POST['submit']=="Login"))
+	{
+	//Initialize session
+	session_start();
+  include "db.php";
+
+$myusername=$_POST['email']; 
+$mypassword=$_POST['password']; 
+
+
+// To protect MySQL injection (more detail about MySQL injection)
+$myusername = stripslashes($myusername);
+$mypassword = stripslashes($mypassword);
+//$myusername = $mysqli -> real_escape_string($myusername);
+//$mypassword = $mysqli -> real_escape_string($mypassword);
+
+
+if($sql="SELECT * FROM shammi_login WHERE email='$myusername' AND  password='$mypassword'"){
+$result=$conn->query($sql);
+if($result->num_rows>0){
+  while($row=$result->fetch_assoc()){
+  
+  
+if($row['category']==1){
+	   $_SESSION['username'] = $_POST['email'];
+
+  		//Jump to add news section
+    header("Location: http://localhost:81/webproject/webprogramming23_team3/linkInfo.php"); // Rewrite the header
+    
+		                  
+
+		    }
+    		   else if($row['category']=='2')
+	          {
+		          $_SESSION['username'] = $_POST['email'];	
+              //Jump to add carousel section   
+		          header('Location:http://localhost:81/webproject/webprogramming23_team3/index.php#carousel');
+		        }
+
+            else if($row['category']=='3')
+	          {
+			        $_SESSION['username'] = $_POST['email'];
+              //Jump to add enter organizational detail section	   
+			        header('Location:http://localhost:81/webproject/webprogramming23_team3/linkInfo.php');
+		        }	
+
+		      else 
+          {
+	        //Jump to news letter section
+		      header('Location:http://localhost:81/webproject/webprogramming23_team3/nl_d.php');
+		      }
+        }}
+
+        else{
+          echo("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Invalied user name or password')
+          </SCRIPT>");
+        }
+        }
+        
+      }
+
+        
+
+?>
+<?php 
+include"../webprogramming23_team3/header.php"; 
+?>
+
+
+
 <section class="vh-100" style="padding-top:100px;">
     
   <div class="container-fluid h-custom">
@@ -10,55 +82,31 @@ include"../webprogramming23_team3/header.php" ?>
           class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form>
-          <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-            <p class="lead fw-normal mb-0 me-3 labelMod">Sign in with</p>
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-              <i class="fab fa-facebook-f"></i>
-            </button>
-
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-              <i class="fab fa-twitter"></i>
-            </button>
-
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-              <i class="fab fa-linkedin-in"></i>
-            </button>
-          </div>
-
-          <div class="divider d-flex align-items-center my-4">
-            <p class="text-center fw-bold mx-3 mb-0 labelMod">Or</p>
-          </div>
-
+        <form method="POST" name="loginForm">
+           
           <!-- Email input -->
           <div class="form-outline mb-4">
-            <input type="email" id="form3Example3" class="form-control form-control-lg"
+          <label class="form-label labelMod" for="form3Example3">Email address</label>
+            <input type="email" id="email" name="email" class="form-control form-control-lg"
               placeholder="Enter a valid email address" />
-            <label class="form-label labelMod" for="form3Example3">Email address</label>
+            
           </div>
 
           <!-- Password input -->
           <div class="form-outline mb-3">
-            <input type="password" id="form3Example4" class="form-control form-control-lg"
+          <label class="form-label labelMod" for="form3Example4">Password</label>
+            <input type="password" id="password" name="password" class="form-control form-control-lg"
               placeholder="Enter password" />
-            <label class="form-label labelMod" for="form3Example4">Password</label>
           </div>
 
           <div class="d-flex justify-content-between align-items-center">
-            <!-- Checkbox -->
-            <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-              <label class="form-check-label labelMod" for="form2Example3">
-                Remember me
-              </label>
-            </div>
-            <a href="#!" >Forgot password?</a>
+            <a href="resetPassword.php" >Forgot password?</a>
           </div>
 
           <div class="text-center text-lg-start mt-4 pt-2">
-            <button type="button" class="btn btn-primary btn-lg"
-              style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-            <p >Don't have an account?&nbsp;&nbsp;&nbsp;&nbsp;<a href="register.php"   >Register</a></p>
+            <input type="submit" name="submit" value="Login" class="btn btn-primary btn-lg"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">
+            <p >Don't have an account?&nbsp;&nbsp;&nbsp;&nbsp;<a href="register.php">Register</a></p>
              
           </div>
 
