@@ -12,6 +12,9 @@
     />
     <link rel="stylesheet" href="../webprogramming23_team3/css/styles.css" />
     <link rel="stylesheet" href="../webprogramming23_team3/css/loginStyle.css" />
+    <section>
+      <!--JavaScript-->
+    <script src="js/site.js"></script>
   </head>
   <body>
     <nav
@@ -65,3 +68,4 @@
         </div>
       </div>
     </nav>
+    </section>
