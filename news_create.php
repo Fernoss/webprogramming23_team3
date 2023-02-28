@@ -24,9 +24,7 @@ include "header.php"?>
     <div class ="form-row">
         <div class = "form-group col-md-3">
             <form method = "post" action = "nl_d.php">
-                <!-- <input type = "text" name = "email" placeholder = "email"><br><br> -->
                 <input type = "submit" value = "Unsubscribe" name = "delete">;
-            <!-- <input type = "submit" value = "Unsubscribe" name = "delete">; -->
             </form>
         </div>
     </div>
@@ -37,8 +35,7 @@ include "header.php"?>
 if (isset($_POST['submit']))
 {
     
-    $email = filter_var($_POST['email'] , FILTER_SANITIZE_EMAIL); // filters a variable with a specified filter
-                                        //removes illegal characters from the email address 
+    $email = filter_var($_POST['email'] , FILTER_SANITIZE_EMAIL);  //removes illegal characters from the email address 
     
     
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) //checks whether the email is valid or not
@@ -48,13 +45,13 @@ if (isset($_POST['submit']))
 
     /* COMPARE EMAIL */
 
-        $sql = "SELECT * FROM shammi_login WHERE email = '{$newemail}'"; //action to be done 
-        $query = mysqli_query($conn, $sql); //send it as a query 
+        $sql = "SELECT * FROM shammi_login WHERE email = '{$newemail}'";
+        $query = mysqli_query($conn, $sql); 
 
         if ($query)  //if the action can be done --> if the email addresses can be compared
         {
-            $result = mysqli_fetch_array($query); //puts the query into an array --> this is the array that i'll continue to work with 
-            if ($result) //checks if the email address exists aka logged in 
+            $result = mysqli_fetch_array($query);
+            if ($result) //checks if the email address exists aka registered in 
             {
                 
                 //in this section it should check whether the user is already subscribed or not 
@@ -69,11 +66,17 @@ if (isset($_POST['submit']))
                     
                     if ($conn -> query($sql) === TRUE)
                     {
-                        echo "Thank you for subscribing to our newsletter, "; //+ login name --> personalized message
+                        $query = mysqli_query($conn, "SELECT fName from shammi_login where email = '{$newemail}'"); 
+
+                        if ($query) 
+                        {
+                            $fname = mysqli_fetch_array($query);
+                            echo "Thank you for subscribing to our newsletter, {$fname['fName']}"; //+ login name --> personalized message
+                        }
                     }
                     else 
                     { 
-                        echo "Error: " .$conn->error; //if the query couldn't be done, it fails
+                        echo "Error: " .$conn->error; 
                     }
                 
             }
@@ -92,10 +95,10 @@ if (isset($_POST['submit']))
         echo "The email address you entered is not valid. Try again. ";
     }
 }
-else if (isset($_POST['delete']))
+/*else if (isset($_POST['delete']))
 {
     include "nl_d.php"; 
-}
+}*/
 
 ?>
 
