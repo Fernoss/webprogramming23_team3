@@ -2,33 +2,20 @@
 $title = "Newsletter"; 
 include "header.php"?>
 
-<!-- if section: if login -> show newsletter, if not, ask the user to login -->
+<div class = "create" id = "create"> <!--this way I can implemend stylings on my page-->
 
-<div id = "subscribe">
-    <h2><br><br>Subscribe to our newsletter to hear more about our website, 
-    along with many news, tips and recommendations regarding the city of Hämeenlinna</h2>
-    <h3>Type in your email address to reassure subscription</h3>
-    <!-- Making a form where the user can input their data -->
-    <div class ="form-row">
-        <div class = "form-group col-md-3">
+<h1><br><br>Subscribe to our newsletter</h1>
+
+    <h3 id = sub-title><br>To hear more about our website, 
+    along with many news, tips and recommendations regarding the city of Hämeenlinna<br></h3>
+    <div class ="form-row ">
+        <div class = "form-group">
             <form method = "post" action = "">
                 <input type = "text" name = "email" placeholder = "email" required><br><br>
                 <input type = "submit" value = "Subscribe" name = "submit">;
-            <!-- <input type = "submit" value = "Unsubscribe" name = "delete">; -->
             </form>
         </div>
     </div>
-        
-    <h3><br><br>Want to unsubscribe? Type in your email address to reassure action</h3>
-    <!-- Making a form where the user can input their data -->
-    <div class ="form-row">
-        <div class = "form-group col-md-3">
-            <form method = "post" action = "nl_d.php">
-                <input type = "submit" value = "Unsubscribe" name = "delete">;
-            </form>
-        </div>
-    </div>
-</div>
 
 <?php
 
@@ -50,63 +37,73 @@ if (isset($_POST['submit']))
         if ($query)  //if the action can be done --> if the email addresses can be compared
         {
             $result = mysqli_fetch_array($query);
-            if ($result) //checks if the email address exists aka registered in 
+            if ($result) //checks if the email address exists a.k.a. registered  
             {
                 
                 //in this section it should check whether the user is already subscribed or not 
 
                 $query = mysqli_query($conn, "SELECT * from viktoria_newsletter WHERE email = '{$newemail}'");
 
-                if ($query && mysqli_num_rows($query) > 0) // if it gives back an actual result aka the data is in the viktoria_newsletter
+                if ($query && mysqli_num_rows($query) > 0) // if it gives back an actual result a.k.a. the data is in the viktoria_newsletter
                 {
-                    echo "You have already subscribed to our newsletter.";
+                    ?><p>You have already subscribed to our newsletter.</p><?php
+                    //echo "You have already subscribed to our newsletter.";
                 }
-                else if ($query && mysqli_num_rows($query) == 0) //if it gives back an empty result aka the user hasnt subscribed yet 
+                else if ($query && mysqli_num_rows($query) == 0) //if it gives back an empty result a.k.a. the user hasnt subscribed yet 
                 {
-                    $news = 'this is just a test '; 
+                    $newsletter = 'this is just a test '; 
                     $subscribe = 1; 
 
                     $sql= "INSERT INTO viktoria_newsletter (newsletter, subscribe, email) 
-                    VALUES ('$news', '$subscribe', '$newemail')";                              
+                    VALUES ('$newsletter', '$subscribe', '$newemail')";                              
                     
                     
                     if ($conn -> query($sql) === TRUE)
                     {
                         $query = mysqli_query($conn, "SELECT fName from shammi_login where email = '{$newemail}'"); 
-
+                                                    //to be able to give personalized feedback to subscription
                         if ($query) 
                         {
                             $fname = mysqli_fetch_array($query);
-                            echo "Thank you for subscribing to our newsletter, {$fname['fName']}"; //+ login name --> personalized message
+                            echo '<p id = final>'. "<br>Thank you for subscribing to our newsletter, {$fname['fName']}." . '</p>';
                         }
                     }
                     else 
                     { 
-                        echo "Error: " .$conn->error; 
+                        echo '<p>'. "Error: " .$conn->error . '</p>';
                     }
                 }
                 else {
-                    echo "Error: " .$conn->error; 
+                    echo '<p>'. "Error: " .$conn->error . '</p>';
                 }
             }
             else 
             {
-                echo "Thank you for subscribing to our newsletter, visitor."; //if didnt recognize the user email --> random visitor
+                echo '<p>'. "Thank you for subscribing to our newsletter, visitor." . '</p>'; //if didnt recognize the user email --> random visitor
+                
             }
         } 
         else 
         {
-            echo "Error." , $conn -> error;
+            echo '<p>'. "Error: " .$conn->error . '</p>';
         }
     }
     else 
     {
-        echo "The email address you entered is not valid. Try again. ";
+        echo '<p>'."The email address you entered is invalid. Try again. " .'</p>';
     }
 }
-
 ?>
+<h4 class ="want-unsub"><br><br>Want to unsubscribe?</h4>
+    <div class ="form-row">
+        <div class = "form-group">
+            <form method = "post" action = "nl_d.php">
+                <input type = "submit" value = "Unsubscribe" name = "delete">;
+            </form>
+        </div>
+    </div>
 
 <?php 
 include "footer.php" 
 ?>
+</div>

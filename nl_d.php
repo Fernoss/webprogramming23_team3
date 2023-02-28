@@ -4,13 +4,14 @@ include "header.php";
 
 ?>
 
-<h2><br><br>Please enter the email for which you want to unsubscribe:<br><br></h2>
+<div class = "create" id = "create"> <!--this way I can implemend stylings on my page-->
+
+<h2><br><br>Please enter the email that you want to unsubscribe:<br><br></h2>
 <div class ="form-row">
-        <div class = "form-group col-md-3">
+        <div class = "form-group">
             <form method = "post" action = "">
                 <input type = "text" name = "email" placeholder = "email" required><br><br>
                 <input type = "submit" value = "Unsubscribe" name = "del">;
-            <!-- <input type = "submit" value = "Unsubscribe" name = "delete">; -->
             </form>
         </div>
 </div>
@@ -28,7 +29,7 @@ if (isset($_POST['del']))
 
         /* CHECKS EMAIL */
 
-        $sql = "SELECT * FROM shammi_login WHERE email = '{$newemail}'"; 
+        $sql = "SELECT * FROM viktoria_newsletter WHERE email = '{$newemail}'"; 
         $query = mysqli_query($conn, $sql);  
 
         if ($query)  //if the action can be done --> if the email addresses can be compared
@@ -49,27 +50,34 @@ if (isset($_POST['del']))
                         if ($query) 
                         {
                             $fname = mysqli_fetch_array($query);
-                            echo "You have successfully unsubscribed from our newsletter, {$fname['fName']}"; //+ login name --> personalized message
+                            echo '<p id = final>'. "You have successfully unsubscribed from our newsletter, {$fname['fName']}". '</p>'; 
                         }
                 }
                 else 
                 { 
-                    echo "Information not modified"; 
+                    echo '<p>'. "Information not modified" . '</p>'; 
                 }  
             }
             else //if the input email isnt in the viktoria_newsletter table
             {
-                echo "It seems like this email hasn't subscribed to our newsletter yet. Please type in a registered email address.";
+                echo '<p>'. "It seems like this email hasn't subscribed to our newsletter yet. 
+                Please type in a registered email address." . '</p>';
             }
         } 
         else 
         {
-            echo "Error." , $conn -> error;
+            echo '<p>'. "Error." , $conn -> error . '</p>';
         }
     }
     else 
     {
-        echo "The email address you entered is not valid. Try again. "; //(ex.: @@, etc)
+        echo '<p>'. "The email address you entered is invalid. Try again. " . '</p>'; //(ex.: @@, etc)
     }
 }
+?>
+</div>
+<?php 
+
+include "footer.php";
+
 ?>
