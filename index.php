@@ -293,7 +293,7 @@ include"../webprogramming23_team3/header.php" ?>
   <input type="text" id="location" name="location" placeholder="Share your location!" required onblur="locationVal()">
 
   <label for="link">Link:</label>
-  <input type="url" id="link" name="link" placeholder="Enter URL here" required>
+  <input type="text" id="link" name="link" placeholder="Enter URL here" required onblur="validateForm()">
 
   <label for="description">Description:</label>
   <textarea id="description" name="description" placeholder="Description about the location"></textarea>

@@ -25,16 +25,17 @@ function validateForm() {
 
 function isValidUrl(url) {
   // urlReg to assign that the url is form ftp/http/https followed by ://
-  const urlReg = /^(ftp|http|https):\/\/[^ "]+$/;
-  return urlReg.test(url);
+  const urlTest = /^(ftp|http|https):\/\/[^ \t\r\n]+$/;
+  return urlTest.test(url);
 }
 
 // add event listener to the form submit button
-const submitButton = document.querySelector(".formSubmit");
-submitButton.addEventListener("click", (event) => {
-  if (!validateForm()) {
-    event.preventDefault(); // prevent the form from being submitted if validation fails
-  }
-});
+// COULDN'T MAKE THIS WORK -> went with onblur
+// const submitButton = document.querySelector(".formSubmit");
+// submitButton.addEventListener("click", (event) => {
+//   if (!validateForm()) {
+//     event.preventDefault(); // prevent the form from being submitted if validation fails
+//   }
+// });
 
 // End of Joonas section
