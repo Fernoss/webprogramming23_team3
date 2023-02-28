@@ -4,100 +4,80 @@ include "header.php";
 
 ?>
 
-<h2>Please enter the email for which you want to unsubscribe:<br><br></h2>
- 
-<form name = "unsub" method="post" action = ""> 
+<div class = "create" id = "create"> <!--this way I can implemend stylings on my page-->
 
-    <input type="text" name="emailentered" placeholder = "Email address" value=""/>  <br> 
-    <input type="submit" name=submit value="Submit"/> 
-
-</form> 
+<h2><br><br>Please enter the email that you want to unsubscribe:<br><br></h2>
+<div class ="form-row">
+        <div class = "form-group">
+            <form method = "post" action = "">
+                <input type = "text" name = "email" placeholder = "email" required><br><br>
+                <input type = "submit" value = "Unsubscribe" name = "del">;
+            </form>
+        </div>
+</div>
 
 <?php 
  
-if (isset($_POST['delete']))
+if (isset($_POST['del']))
 {
-    $email_entered = $_POST['emailentered']; 
+    $email = filter_var($_POST['email'] , FILTER_SANITIZE_EMAIL); //filters the email address from 'illegal' characters (like ó, ő) 
 
-    /* $query = mysqli_query($conn,
-    "DELETE FROM 
-    newsletter 
-    WHERE email='$email_entered'"); */ 
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) //checks whether the email is valid or not
+    { 
+        include 'db.php';
+        $newemail = $_POST['email'];
 
-    // if ($query)
-    // { 
-        echo "<h2> You have successfully unsubscribed from our newsletter. </h2>"; 
+        /* CHECKS EMAIL */
+
+        $sql = "SELECT * FROM viktoria_newsletter WHERE email = '{$newemail}'"; 
+        $query = mysqli_query($conn, $sql);  
+
+        if ($query)  //if the action can be done --> if the email addresses can be compared
+        {
+            $result = mysqli_fetch_array($query);  
+            if ($result) //checks if the email address exists in the viktoria_newsletter table 
+            {
+             
+                $query = mysqli_query($conn,
+                "DELETE FROM 
+                viktoria_newsletter 
+                WHERE email='$newemail'"); 
+
+                if ($query)
+                { 
+                    $query = mysqli_query($conn, "SELECT fName from shammi_login where email = '{$newemail}'"); 
+
+                        if ($query) 
+                        {
+                            $fname = mysqli_fetch_array($query);
+                            echo '<p id = final>'. "You have successfully unsubscribed from our newsletter, {$fname['fName']}". '</p>'; 
+                        }
+                }
+                else 
+                { 
+                    echo '<p>'. "Information not modified" . '</p>'; 
+                }  
+            }
+            else //if the input email isnt in the viktoria_newsletter table
+            {
+                echo '<p>'. "It seems like this email hasn't subscribed to our newsletter yet. 
+                Please type in a registered email address." . '</p>';
+            }
+        } 
+        else 
+        {
+            echo '<p>'. "Error." , $conn -> error . '</p>';
+        }
     }
     else 
-    { 
-        echo "Information not modified"; 
-    }
-//}
-?> 
- 
- 
-<p id="para1">You have successfully unsubscribed from this newsletter. 
- 
-
-
- 
-<!--
-    <h2><br><br>Unsubscribe from our newsletter</h2>
--->
-
-
-<?php
-/*
-    if (isset($_GET['email']))
     {
-    $a = $_GET['email']; 
-    include 'test_db.php'; 
+        echo '<p>'. "The email address you entered is invalid. Try again. " . '</p>'; //(ex.: @@, etc)
     }
-
-    $result = mysqli_query($conn,
-    "Select * from newsletter
-    where email = '$a' ");
-
-    $row = mysqli_fetch_array($result); 
+}
 ?>
-
-<form name = "buttons" method = "post" action = ""> 
-    <input type = "submit" value = "Unsubscribe" name = "delete"> 
-</form>
-
+</div>
 <?php 
 
-if (isset($_POST['delete']))
-{
-    ?> <h2>Type in your email address below</h2>
+include "footer.php";
 
-    <form name = "delete" method = "post" action = "">
-        <input type = "text" name = "email" placeholder = "Email" required value = "<?php echo $row['email']; ?>"><br><br>
-        <input type = "submit" value = "Unsubscribe" name = "unsub"><br><br>
-    </form> <?php
-
-    if (isset($_POST['unsub']))
-    {
-        
-        $query = mysqli_query($conn, 
-        "DELETE from newsletter
-        where email = '$a'");
-        /*
-        $query = mysqli_query($conn, 
-        "DELETE from studentinfo
-        where email = '$email'"); 
-        */ 
- 
-        /*
-        if ($query)
-        {
-            echo "<h2> You have successfully unsubscribed from our newsletter. </h2>"; 
-        }
-        else 
-        { 
-            echo "Information not modified"; 
-        }
-    }  
-}
-*/
 ?>
