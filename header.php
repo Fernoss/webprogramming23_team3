@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../webprogramming23_team3/css/loginStyle.css" />
     <section>
       <!--JavaScript-->
-    <script src="js/site.js"></script>
+    <script src="../webprogramming23_team3/index.js"></script>
   </head>
   <body>
     <nav

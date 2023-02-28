@@ -46,7 +46,6 @@ CREATE TABLE `joonas_carousel` (
   `location` varchar(60) NOT NULL,
   `link` varchar(100) NOT NULL,
   `description` varchar(300) NOT NULL,
-  `image` varchar(255) NOT NULL,
   `email` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 

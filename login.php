@@ -38,7 +38,7 @@ if($row['category']==1){
 	          {
 		          $_SESSION['username'] = $_POST['email'];	
               //Jump to add carousel section   
-		          header('Location:http://localhost:81/webproject/webprogramming23_team3/index.php#carousel');
+		          header('Location:http://localhost:81/webprogramming23_team3/index.php#carousel');
 		        }
 
             else if($row['category']=='3')

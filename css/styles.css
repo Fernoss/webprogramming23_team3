@@ -92,6 +92,10 @@ input[type="submit"]:hover {
   background-color: #ff6f31e0;
 }
 
+.submit-success {
+  color: #eae3d2 !important;
+}
+
 /*news Part*/
 
 #news {
@@ -118,21 +122,21 @@ input[type="submit"]:hover {
 /* PHP news table */
 .btn-warning {
   color: #243763 !important;
-  background-color: #ff6e31!important;
+  background-color: #ff6e31 !important;
   width: 20vw;
   margin-left: 40vw !important;
   margin-bottom: 10vh;
-  }
-  .btn-warning a{
-    color: #243763;
-  }
-  #newsarticle {
-    width: 60%;
-    margin: auto;
-    margin-top: 90px;
 }
-h5{
-  color: #eae3d2 ;
+.btn-warning a {
+  color: #243763;
+}
+#newsarticle {
+  width: 60%;
+  margin: auto;
+  margin-top: 90px;
+}
+h5 {
+  color: #eae3d2;
 }
 /* end of PHP news table */
 /*end of news part*/
@@ -352,11 +356,11 @@ a:hover {
   }
 }
 
-                                              /* web programming designs */
+/* web programming designs */
 .subscribe {
-  display: flex !important; 
+  display: flex !important;
   justify-content: center !important;
 }
-.sub-a{
-  color: black !important; 
+.sub-a {
+  color: black !important;
 }
