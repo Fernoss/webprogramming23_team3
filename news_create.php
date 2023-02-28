@@ -17,7 +17,7 @@ include "header.php"?>
             <!-- <input type = "submit" value = "Unsubscribe" name = "delete">; -->
             </form>
         </div>
-
+    </div>
         
     <h3><br><br>Want to unsubscribe? Type in your email address to reassure action</h3>
     <!-- Making a form where the user can input their data -->
@@ -29,6 +29,7 @@ include "header.php"?>
             <!-- <input type = "submit" value = "Unsubscribe" name = "delete">; -->
             </form>
         </div>
+    </div>
 </div>
 
 <?php
@@ -56,8 +57,9 @@ if (isset($_POST['submit']))
             if ($result) //checks if the email address exists aka logged in 
             {
                 
-                ///////////////////////////////////////////////////////////////////////////////
-                
+                //in this section it should check whether the user is already subscribed or not 
+                // --> to avoid duplication 
+
                     $news = 'this is just a test '; 
                     $subscribe = 1; 
 
@@ -89,6 +91,10 @@ if (isset($_POST['submit']))
     {
         echo "The email address you entered is not valid. Try again. ";
     }
+}
+else if (isset($_POST['delete']))
+{
+    include "nl_d.php"; 
 }
 
 ?>
