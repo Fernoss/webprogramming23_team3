@@ -45,8 +45,7 @@ if (isset($_POST['submit']))
 
     /* COMPARE EMAIL */
 
-        $sql = "SELECT * FROM shammi_login WHERE email = '{$newemail}'";
-        $query = mysqli_query($conn, $sql); 
+        $query = mysqli_query($conn, "SELECT * FROM shammi_login WHERE email = '{$newemail}'"); 
 
         if ($query)  //if the action can be done --> if the email addresses can be compared
         {
@@ -55,8 +54,15 @@ if (isset($_POST['submit']))
             {
                 
                 //in this section it should check whether the user is already subscribed or not 
-                // --> to avoid duplication 
 
+                $query = mysqli_query($conn, "SELECT * from viktoria_newsletter WHERE email = '{$newemail}'");
+
+                if ($query && mysqli_num_rows($query) > 0) // if it gives back an actual result aka the data is in the viktoria_newsletter
+                {
+                    echo "You have already subscribed to our newsletter.";
+                }
+                else if ($query && mysqli_num_rows($query) == 0) //if it gives back an empty result aka the user hasnt subscribed yet 
+                {
                     $news = 'this is just a test '; 
                     $subscribe = 1; 
 
@@ -78,7 +84,10 @@ if (isset($_POST['submit']))
                     { 
                         echo "Error: " .$conn->error; 
                     }
-                
+                }
+                else {
+                    echo "Error: " .$conn->error; 
+                }
             }
             else 
             {
@@ -95,10 +104,6 @@ if (isset($_POST['submit']))
         echo "The email address you entered is not valid. Try again. ";
     }
 }
-/*else if (isset($_POST['delete']))
-{
-    include "nl_d.php"; 
-}*/
 
 ?>
 
