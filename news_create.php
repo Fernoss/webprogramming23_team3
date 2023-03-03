@@ -4,8 +4,7 @@ include "header.php"?>
 
 <div class = "create" id = "create"> <!--this way I can implemend stylings on my page-->
 
-<h1><br><br>Subscribe to our newsletter</h1>
-
+<h1 id = "h1" onmouseover = titleOn() onmouseout = titleOff()> <br><br>Subscribe to our newsletter </h1>
     <h3 id = sub-title><br>To hear more about our website, 
     along with many news, tips and recommendations regarding the city of Hämeenlinna<br></h3>
     <div class ="form-row ">
