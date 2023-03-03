@@ -384,8 +384,13 @@ if(isset($_SESSION['user_id'])) {
 <section id="link4" style="padding: 100px 0px 100px 0px">
   <div class="container" alt="link-4">
     <div class="row">
+      <div class="col-md-6">
       <h3>Useful links</h3>
     </div>
+    <div class="col-md-6">
+      <h3><a href="../webprogramming23_team3/login.php">Enter your organization data</a></h3>
+    </div>
+
 <div class ="container" alt ="trying">
   <div class ="row" alt ="r-and-s">
     <div class ="col-md-6" alt ="r">
