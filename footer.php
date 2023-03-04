@@ -97,6 +97,12 @@
                       height="50"
                   /></a>
                 </p>
+                <p>
+                <button type="button" class="btn btn-primary">
+                  <a href = "news_create.php" id = "sub-a">Subscribe</a>
+                </button>
+
+                </p>
               </div>
             </div>
             <div class="row justify-content-center">
