@@ -42,9 +42,7 @@
 <br>
 
 <!-- 
-
     Usign Jquery Validation plugin to validate the client side form
-
 -->
 <script>
     $('#newsarticle').validate();
