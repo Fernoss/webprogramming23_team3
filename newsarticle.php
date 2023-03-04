@@ -83,9 +83,6 @@
             echo "Error: Invalid URL";
             return;
         }
-
-
-
         $description = test_input($description);
         $loginID = $_SESSION["user_id"];
 
