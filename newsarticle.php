@@ -76,7 +76,6 @@
         $category = test_input($category);
         $link = test_input($link);
 
-
         // Also Validating the link in server side
         if(!filter_var($link, FILTER_VALIDATE_URL))
         {
