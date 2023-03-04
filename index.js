@@ -41,6 +41,7 @@ function isValidUrl(url) {
 // End of Joonas section
 
 
+
 /* VIKTÓRIA'S NEWSLETTER SECTION */ 
 
 //title of the 'news_create.php'
@@ -55,7 +56,7 @@ function titleOff() {
   document.getElementById('h1').style.color = '#ff6e31'; 
 }
 
-//title of the nl_d.php
+//title of the 'nl_d.php'
 function deleteOn()
 {
   document.getElementById('h2').style.color = '#ffbd31';
