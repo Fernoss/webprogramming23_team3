@@ -8,6 +8,8 @@ include"../webprogramming23_team3/header.php" ?>
 </center
 <section>
 
+<!-- Fahimeh's section-->
+
 <div class="container" id="news">
       <div class="row g-3">
         <div class="col-12 col-md-6 col-lg-4">
@@ -89,7 +91,7 @@ include"../webprogramming23_team3/header.php" ?>
                 wilderness, Vasatokka! The trip is from Monday, February 27 to
                 Sunday, March 5 See the incredible nature, enjoy a variety of
                 winter fun in the snow and sauna, learn about life and culture
-                of the North and most importantly, meet Santa and the reindeers!
+                of the North and most importantly, meet Santa and the reindeers.
               </p>
               <button type="button" class="btn btn-outline-warning">
                 <a
@@ -104,7 +106,13 @@ include"../webprogramming23_team3/header.php" ?>
         </div>
       </div>
     </div>
+      <!-- add a button below the news section-->
+          <div class="newsartbtn">
+          <button type="button" class="btn btn-warning">  <a href="newsarticle.php" target="_blank">Click here to add news </a></button>
+          </div>  
+
     <!-- End of Fahimeh's section-->
+
 
     <!-- Joonas' section -->
     <!-- Creating a section for ID=carousel-->
@@ -208,7 +216,7 @@ include"../webprogramming23_team3/header.php" ?>
               <p>
                 Know a cool place you would like to share with the rest of us?
                 Have you found a hidden gem while exploring Hämeenlinna? Tip us
-                via email and we will add it here to share!
+                via form below and we will add it here to share!
               </p>
             </div>
           </div>
@@ -278,45 +286,20 @@ include"../webprogramming23_team3/header.php" ?>
       </div>
     </div>
 <!-- PHP feature - Location form -->
-
-<form method="post">
+  <!-- Version 2.0 with simple JS. 
+  Now I use action="submit.php" for submitting data, if successfully submitted, redirect to new page submit_success.php-->
+  <form id="my-form" action="submit.php" method="post" name="locForm">
   <label for="location">Location:</label>
-  <input type="text" id="location" name="location" placeholder="Share your location!" required>
+  <input type="text" id="location" name="location" placeholder="Share your location!" required onblur="locationVal()">
 
   <label for="link">Link:</label>
-  <input type="url" id="link" name="link" placeholder="Enter URL here" required>
+  <input type="text" id="link" name="link" placeholder="Enter URL here" required onblur="validateForm()">
 
   <label for="description">Description:</label>
   <textarea id="description" name="description" placeholder="Description about the location"></textarea>
 
   <br><input class="formSubmit" name="submit" type="submit" value="Submit">
 </form>
-<?php
-// to start output buffering, because we are using session_start() here and not in the beginning
- // start the session
-
-if(isset($_SESSION['user_id'])) {
-    if(isset($_POST['submit'])) {
-        $location = $_POST['location'];
-        $link = $_POST['link'];
-        $description = $_POST['description'];
-        include 'db.php';
-        $sql = "insert into joonas_carousel (location, link, description)
-        values('$location','$link','$description')";
-
-        if($conn -> query($sql) === true){
-            echo "Your information is added successfully!";
-        }
-        else{
-            echo "Error: " . $conn -> error;
-        }
-    }
-} else {
-    // User is not logged in, display an error message
-    echo "Error: You must be logged in to add information.";
-}
-// to send the buffered output to the browser
-?>
 
     <!-- End of Joonas' Section -->
 

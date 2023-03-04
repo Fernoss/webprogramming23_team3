@@ -1,4 +1,10 @@
-<?php include("header.php");?>
+<?php 
+
+session_start(); 
+ 	/*if(!isset($_SESSION['user0']) || (empty($_SESSION['user0'])))
+		{ 	header("Location:../login.php");	 }*/
+include("header.php");
+?>
 <section style="padding-top:100px; padding-bottom:100px; content-align:center;">
 <div class="container wrapper">
     
