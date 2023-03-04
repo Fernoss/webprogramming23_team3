@@ -130,7 +130,10 @@ input[type="submit"]:hover {
     width: 60%;
     margin: auto;
     margin-top: 90px;
-}
+  }
+  label.error{
+    color:red;
+  }
 h5{
   color: #eae3d2 ;
 }
