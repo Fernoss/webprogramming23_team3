@@ -14,9 +14,7 @@
     <link rel="stylesheet" href="../webprogramming23_team3/css/loginStyle.css" />
     <section>
       <!--JavaScript-->
-      <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
-    <script src="js/site.js"></script>
+    <script src="../webprogramming23_team3/index.js"></script>
   </head>
   <body>
     <nav
@@ -49,16 +47,16 @@
         >
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="#news"><b>News</b></a>
+              <a class="nav-link" href="../webprogramming23_team3/index.php#news"><b>News</b></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#carousel"><b>Sights</b></a>
+              <a class="nav-link" href="../webprogramming23_team3/index.php#carousel"><b>Sights</b></a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link" href="#why"><b>Why Hämeenlinna</b></a>
+              <a class="nav-link" href="../webprogramming23_team3/index.php#why"><b>Why Hämeenlinna</b></a>
               <li class="nav-item dropdown">
               </li>
-              <a class="nav-link" href="#link4"><b>Useful Links</b></a>
+              <a class="nav-link" href="../webprogramming23_team3/index.php#link4"><b>Useful Links</b></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#footer"><b>Contact Us</b></a>
