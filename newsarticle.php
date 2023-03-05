@@ -6,7 +6,9 @@
     include 'header.php';
 ?>
 
-<!--news form linked to the botton which is located under the news section in the website -->
+<!--news form linked to the botton which is located under the news section in the website
+when user is logged in can see that
+-->
 <form action="" method="post" id="newsarticle">
 
     <h5>Add your news here: <br></h5>
