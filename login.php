@@ -99,9 +99,7 @@ include"../webprogramming23_team3/header.php";
               placeholder="Enter password" />
           </div>
 
-          <div class="d-flex justify-content-between align-items-center">
-            <a href="resetPassword.php" >Forgot password?</a>
-          </div>
+          
 
           <div class="text-center text-lg-start mt-4 pt-2">
             <input type="submit" name="submit" value="Login" class="btn btn-primary btn-lg"

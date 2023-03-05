@@ -47,16 +47,16 @@
         >
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="#news"><b>News</b></a>
+              <a class="nav-link" href="../webprogramming23_team3/index.php#news"><b>News</b></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#carousel"><b>Sights</b></a>
+              <a class="nav-link" href="../webprogramming23_team3/index.php#carousel"><b>Sights</b></a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link" href="#why"><b>Why Hämeenlinna</b></a>
+              <a class="nav-link" href="../webprogramming23_team3/index.php#why"><b>Why Hämeenlinna</b></a>
               <li class="nav-item dropdown">
               </li>
-              <a class="nav-link" href="#link4"><b>Useful Links</b></a>
+              <a class="nav-link" href="../webprogramming23_team3/index.php#link4"><b>Useful Links</b></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#footer"><b>Contact Us</b></a>

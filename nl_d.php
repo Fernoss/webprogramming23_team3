@@ -6,7 +6,7 @@ include "header.php";
 
 <div class = "create" id = "create"> <!--this way I can implemend stylings on my page-->
 
-<h2><br><br>Please enter the email that you want to unsubscribe:<br><br></h2>
+<h2 id = "h2" onmouseover = deleteOn() onmouseout = deleteOff()><br><br>Please enter the email that you want to unsubscribe:<br><br></h2>
 <div class ="form-row">
         <div class = "form-group">
             <form method = "post" action = "">
@@ -50,7 +50,7 @@ if (isset($_POST['del']))
                         if ($query) 
                         {
                             $fname = mysqli_fetch_array($query);
-                            echo '<p id = final>'. "You have successfully unsubscribed from our newsletter, {$fname['fName']}". '</p>'; 
+                            echo '<p id = final>'. "You have successfully <br> unsubscribed from our newsletter, {$fname['fName']}". '</p>'; 
                         }
                 }
                 else 

@@ -71,8 +71,8 @@
                     <select name="category" class="form-control">
                             <option value="1">Add News</option>
                             <option value="2">Carousel</option>
-                            <option value="3">Enter organization detail</option>
-                            <option value="4">Enter news letter</option>
+                            <option value="3">Organization detail</option>
+                            <option value="4">News letter</option>
                         </select>
                       
                     </div>
@@ -108,7 +108,7 @@
       </div>
     </div>
   </div>
-  
+</section>
 <!-- Insert register date into database-->
 
 <?php 
@@ -123,6 +123,7 @@ include("db.php");
 
 $sql="INSERT INTO shammi_login (fName, lName, email, password, category) 
   VALUES ('$fName','$lName', '$email','$pw', '$category')";
+  
 
      
 if($conn->query($sql)==TRUE){
