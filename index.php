@@ -106,6 +106,16 @@ include"../webprogramming23_team3/header.php" ?>
         </div>
       </div>
     </div>
+    <?php
+      // checking session user_id to see if user is logged in
+      if(isset($_SESSION['user_id']))
+      {
+        // if user is logged in, the button will show
+        echo '<div class="newsartbtn">
+        <button type="button" class="btn btn-warning">  <a href="newsarticle.php" target="_blank">Click here to add news </a></button>
+        </div> ';
+      }
+    ?>
       <!-- add a button below the news section-->
           <div class="newsartbtn">
           <button type="button" class="btn btn-warning">  <a href="newsarticle.php" target="_blank">Click here to add news </a></button>
