@@ -116,10 +116,6 @@ include"../webprogramming23_team3/header.php" ?>
         </div> ';
       }
     ?>
-      <!-- add a button below the news section-->
-          <div class="newsartbtn">
-          <button type="button" class="btn btn-warning">  <a href="newsarticle.php" target="_blank">Click here to add news </a></button>
-          </div>  
 
     <!-- End of Fahimeh's section-->
 
