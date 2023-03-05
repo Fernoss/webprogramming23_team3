@@ -39,3 +39,30 @@ function isValidUrl(url) {
 // });
 
 // End of Joonas section
+
+
+
+/* VIKTÓRIA'S NEWSLETTER SECTION */ 
+
+//title of the 'news_create.php'
+function titleOn() {
+  document.getElementById('h1').style.fontStyle = 'italic';
+  document.getElementById('h1').style.fontWeight = '650';
+  document.getElementById('h1').style.color = '#ffbd31';
+}
+function titleOff() {
+  document.getElementById('h1').style.fontStyle = 'normal';
+  document.getElementById('h1').style.fontWeight = '500';
+  document.getElementById('h1').style.color = '#ff6e31'; 
+}
+
+//title of the 'nl_d.php'
+function deleteOn()
+{
+  document.getElementById('h2').style.color = '#ffbd31';
+}
+function deleteOff()
+{
+  document.getElementById('h2').style.color = '#ff6e31'; 
+}
+
