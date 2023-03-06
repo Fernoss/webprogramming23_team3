@@ -29,7 +29,7 @@ if($row['category']==1){
 	   $_SESSION['username'] = $_POST['email'];
 
   		//Jump to add news section
-    header("Location: http://localhost:81/webproject/webprogramming23_team3/newsarticle.php"); // Rewrite the header
+    header("Location: http://localhost:81/webprogramming23_team3/newsarticle.php"); // Rewrite the header
     
 		                  
 
@@ -45,13 +45,13 @@ if($row['category']==1){
 	          {
 			        $_SESSION['username'] = $_POST['email'];
               //Jump to add enter organizational detail section	   
-			        header('Location:http://localhost:81/webproject/webprogramming23_team3/linkInfo.php');
+			        header('Location:http://localhost:81/webprogramming23_team3/linkInfo.php');
 		        }	
 
 		      else 
           {
 	        //Jump to news letter section
-		      header('Location:http://localhost:81/webproject/webprogramming23_team3/nl_d.php');
+		      header('Location:http://localhost:81/webprogramming23_team3/news_create.php');
 		      }
         }}
 

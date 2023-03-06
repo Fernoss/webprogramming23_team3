@@ -29,7 +29,7 @@ if (isset($_POST['submit']))
         include 'db.php'; //altered the database php to be able to test 
         $newemail = $_POST['email']; 
 
-    /* COMPARE EMAIL */
+        /* COMPARE EMAIL */
 
         $query = mysqli_query($conn, "SELECT * FROM shammi_login WHERE email = '{$newemail}'"); 
 
@@ -45,8 +45,7 @@ if (isset($_POST['submit']))
 
                 if ($query && mysqli_num_rows($query) > 0) // if it gives back an actual result a.k.a. the data is in the viktoria_newsletter
                 {
-                    ?><p>You have already subscribed to our newsletter.</p><?php
-                    //echo "You have already subscribed to our newsletter.";
+                    echo '<p>'. "You have already subscribed to our newsletter." . '</p>';
                 }
                 else if ($query && mysqli_num_rows($query) == 0) //if it gives back an empty result a.k.a. the user hasnt subscribed yet 
                 {
