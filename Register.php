@@ -134,7 +134,10 @@ if($conn->query($sql)==TRUE){
   }
 
     else {
-            echo "Error :".$conn->error; 
+            //echo "Error :".$conn->error; 
+            echo("<SCRIPT LANGUAGE='JavaScript'>
+  window.alert($conn->error)
+  </SCRIPT>");
     }
 
 }
@@ -150,8 +153,13 @@ if($conn->query($sql)==TRUE){
 let name=document.myform.fName.value;  
 // to check if name is empty of not  
 if (name==null || name==""){  
-  alert("Name can't be blank");  
+  alert("document.getElementById("myH1").style.color = "red";");  
   return false;  
+}
+
+else if(!isNaN(name)){
+  alert("Only characters not numbers");  
+  return false;
 }
 // to check if first name has atleast 5 characters
 else if(name.length<2){  
@@ -163,10 +171,18 @@ else if(name.length<2){
 let lastname=document.myform.lName.value;  
 // to check if last name is empty of not  
 if (lastname==null || lastname==""){  
-  alert("Last Name can't be blank");  
+  echo "<div class='alertMessage'>";
+   echo "<span class='closeBtn' onclick='this.parentElement.style.display=none;'>×</span>";
+   echo" <strong>This is an alert message.</strong> Click on the close button to dismiss it.";
+    echo "</div>";
+  //alert("Last Name can't be blank");  
   return false;  
 }
 
+else if(!isNaN(lastname)){
+  alert("Only characters not numbers");  
+  return false;
+}
 
  //validating email 
  let email=document.myform.email.value;
