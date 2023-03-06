@@ -30,7 +30,7 @@ include("header.php");
 
     <div class="col-md-4 mb-3">
       <label for="validationCustom02">Distance from city center</label>
-      <input type="text" class="form-control" id="distance" name="distance" placeholder="Distance"  required>
+      <input type="" class="form-control" id="distance" name="distance" placeholder="Distance"  required>
       <div class="valid-feedback">
         Looks good!
       </div>
@@ -50,9 +50,7 @@ include("header.php");
     <div class="col-md-6 mb-3">
       <label for="validationCustom03">Picture to describe the organization</label>
       <input type="file" class="form-control" id="picture" name="picture"placeholder="Share picture" required>
-      <div class="invalid-feedback">
-        Please provide a valid city.
-      </div>
+      
     </div>
     
     <div class="col-md-6 mb-3">
@@ -64,7 +62,8 @@ include("header.php");
       </div>
     </div>
   </div>
-  <div class="col-md-6 mb-3"> 
+  <div class="col-md-6 mb-3">
+  <input type="hidden" id="date" name="date" value=" <?php echo date("Y-m-d h:i:s A");?>">
   <input type="submit" class="btn btn-primary" value="Submit" name="Submit" id="Submit">
   </div>
 </form>
@@ -81,12 +80,13 @@ $distance=$_POST['distance'];
 $url=$_POST['url'];
 $picture=$_POST['picture'];
 $desc=$_POST['desc'];
+$dateTime=$_POST['date'];
 $email=$_SESSION['username'];
 
 include("db.php");
 
-$sql="INSERT INTO shammi_linkinfo (orgName, city, distance, url, image,description, email) 
-  VALUES ('$cName','$cCity', '$distance','$url', '$picture', '$desc', '$email')";
+$sql="INSERT INTO shammi_linkinfo (orgName, city, distance, url, image,description, email, date) 
+  VALUES ('$cName','$cCity', '$distance','$url', '$picture', '$desc', '$email','$dateTime')";
 
        
 if($conn->query($sql)==TRUE){
