@@ -1,7 +1,7 @@
 <!--Fahimeh newsform -->
 
 <?php
-    seseion_start();
+    session_start();
     $title="news article";
     include 'header.php';
 ?>
