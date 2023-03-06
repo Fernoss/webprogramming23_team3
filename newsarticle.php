@@ -1,5 +1,3 @@
-<!--Fahimeh newsform -->
-
 <?php
     session_start();
     $title="news article";
