@@ -49,7 +49,7 @@ if (isset($_POST['submit']))
                 }
                 else if ($query && mysqli_num_rows($query) == 0) //if it gives back an empty result a.k.a. the user hasnt subscribed yet 
                 {
-                    $newsletter = 'this is just a test '; 
+                    $newsletter = 'registered user'; 
                     $subscribe = 1; 
 
                     $sql= "INSERT INTO viktoria_newsletter (newsletter, subscribe, email) 
@@ -71,14 +71,40 @@ if (isset($_POST['submit']))
                         echo '<p>'. "Error: " .$conn->error . '</p>';
                     }
                 }
-                else {
+                else 
+                {
                     echo '<p>'. "Error: " .$conn->error . '</p>';
                 }
             }
-            else 
+            else //put the user's email into the newsletter table as "visitor"
             {
-                echo '<p>'. "Thank you for subscribing to our newsletter, visitor." . '</p>'; //if didnt recognize the user email --> random visitor
-                
+                $query = mysqli_query($conn, "SELECT * from viktoria_newsletter WHERE email = '{$newemail}'");
+
+                if ($query && mysqli_num_rows($query) > 0) // if it gives back an actual result a.k.a. the data is in the viktoria_newsletter
+                {
+                    echo '<p>'. "You have already subscribed to our newsletter." . '</p>';
+                }
+                else if ($query && mysqli_num_rows($query) == 0) //if it gives back an empty result a.k.a. the user hasnt subscribed yet 
+                {
+                    $newsletter = 'visitor'; 
+                    $subscribe = 1; 
+
+                    $sql= "INSERT INTO viktoria_newsletter (newsletter, subscribe, email) 
+                    VALUES ('$newsletter', '$subscribe', '$newemail')";                              
+                    
+                    
+                    if ($conn -> query($sql) === TRUE)
+                    {
+                        echo '<p>'. "Thank you for subscribing to our newsletter, visitor." . '</p>'; //if didnt recognize the user email --> random visitor
+                    }   
+                    else 
+                    { 
+                        echo '<p>'. "Error: " .$conn->error . '</p>';
+                    }
+                }
+                else {
+                    echo '<p>'. "Error: " .$conn->error . '</p>';
+                }
             }
         } 
         else 
