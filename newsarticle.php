@@ -1,3 +1,5 @@
+
+
 <?php
     session_start();
     $title="news article";
@@ -54,7 +56,7 @@ when user is logged in can see that
         $category=$_POST['category'];
         $link=$_POST['link'];
         $description=$_POST['description'];
-        
+
 
         // the fucntion will trim the whitespace and also encodes the html special chars 
         /*
@@ -75,17 +77,16 @@ when user is logged in can see that
         $link = test_input($link);
 
         // Also Validating the link in server side
-        
         if(!filter_var($link, FILTER_VALIDATE_URL))
         {
             echo "Error: Invalid URL";
             return;
         }
         $description = test_input($description);
-        $loginID =$_SESSION['username'];
-        
+        $loginID = $_SESSION["user_id"];
+
         include 'db.php';
-        $sql = "insert into fahimeh_news (title, category, link, description, email)
+        $sql = "insert into fahimeh_news (title, category, link, description, loginid)
         values('$title', '$category', '$link', '$description', '$loginID')";
         if ($conn ->query($sql)===TRUE){
             echo "Your news added successfully";
