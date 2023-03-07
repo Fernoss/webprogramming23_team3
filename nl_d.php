@@ -49,8 +49,15 @@ if (isset($_POST['del']))
 
                         if ($query) 
                         {
+                            if (mysqli_num_rows($query) == 0)
+                            {
+                                echo '<p id = final>'. "You have successfully <br> unsubscribed from our newsletter". '</p>'; 
+                            }
+                            else 
+                            {
                             $fname = mysqli_fetch_array($query);
-                            echo '<p id = final>'. "You have successfully <br> unsubscribed from our newsletter, {$fname['fName']}". '</p>'; 
+                            echo '<p id = final>'. "You have successfully <br> unsubscribed from our newsletter, {$fname['fName']}". '</p>';
+                            } 
                         }
                 }
                 else 
