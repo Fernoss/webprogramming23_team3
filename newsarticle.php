@@ -1,5 +1,3 @@
-
-
 <?php
     session_start();
     $title="news article";
@@ -79,20 +77,21 @@ when user is logged in can see that
         // Also Validating the link in server side
         if(!filter_var($link, FILTER_VALIDATE_URL))
         {
+            
             echo "Error: Invalid URL";
             return;
         }
         $description = test_input($description);
-        $loginID = $_SESSION["user_id"];
+        $email = $_SESSION["username"];
 
         include 'db.php';
-        $sql = "insert into fahimeh_news (title, category, link, description, loginid)
-        values('$title', '$category', '$link', '$description', '$loginID')";
+        $sql = "insert into fahimeh_news (title, category, link, description, email)
+        values('$title', '$category', '$link', '$description', '$email')";
         if ($conn ->query($sql)===TRUE){
-            echo "Your news added successfully";
+            echo "<p style='color:#ff6f31e0; text-align: center; font-size: 30px;'>Thanks, your news added successfully</p>";
         }
         else {
-            echo "Error:" .$conn->error;
+            echo "Eror:" .$conn->error;
         }
     }
 ?>
