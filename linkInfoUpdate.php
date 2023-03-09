@@ -99,8 +99,8 @@ $picture=$_POST['picture'];
 $desc=$_POST['desc'];
 $dateTime=$_POST['date'];
 include("../webprogramming23_team3/db.php");
-$query = mysqli_query($conn,"UPDATE shammi_linkinfo SET cName='$cName',comCity='$cCity', 
-distance='$distance', url='$url', picture='$picture', desc='$desc', date='$dateTime' WHERE linkId='$a'");
+$query = mysqli_query($conn,"UPDATE shammi_linkinfo SET cName='$cName', comCity='$cCity', 
+distance='$distance', url='$url', picture='$picture', desc='$desc', date='$dateTime' WHERE linkId='$_GET[id]'");
 
     if($query){
         echo "Record Modified Successfully <br>";

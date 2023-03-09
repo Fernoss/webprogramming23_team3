@@ -24,7 +24,7 @@ $row= mysqli_fetch_array($result);
       <a href="../webprogramming23_team3/linkInfoView.php" class="btn btn-primary" style="background-color:#ff6e31; color:black;">View company detail</a>
       </div>
     </div>
-<form class="needs-validation" novalidate method="POST" action="linkInfoView.php">
+<form class="needs-validation" novalidate method="POST" action="">
   <div class="form-row">
     <div class="col-md-4 mb-3">
       <label for="validationCustom01">Company Name</label>
@@ -62,41 +62,21 @@ $row= mysqli_fetch_array($result);
       </div>
     </div>
   </div>
-  <div class="form-row">
-    <div class="col-md-6 mb-3">
-      <label for="validationCustom03">Picture to describe the organization</label>
-      <input type="file" class="form-control" id="picture" name="picture" >
-      
-    </div>
-    
-    <div class="col-md-6 mb-3">
-      <label for="validationCustom05">Student offers and Description</label>
-      <textarea  rows="6" cols="50" class="form-control" id="desc" name="desc" value="<?php echo $row['description']; ?>">
-      </textarea>
-      <div class="invalid-feedback">
-        Please provide a valid zip.
-      </div>
-    </div>
-  </div>
+  
   <div class="col-md-6 mb-3">
-  <input type="hidden" id="date" name="date" value=" <?php echo date("Y-m-d h:i:s A");?>">
+  
   <input type="submit" class="btn btn-primary" value="Delete" name="submit" id="submit">
   </div>
 </form>
 </div>
 </div>
-<?php 
-  
-  
- 
-$conn->close(); 
-  ?>
+
 
 <?php 
-include("db.php");
+include("../webprogramming23_team3/db.php");
 
 if(isset($_POST['submit'])){
-    $query = mysqli_query($conn,"DELETE FROM shammi_linkinfo where linkId='$_GET[id]'");
+    $query = mysqli_query($conn,"DELETE FROM shammi_linkinfo WHERE linkId='$_GET[id]'");
     if($query){
         echo "Record Deleted with id: $_GET[id] <br>";
         //echo "<a href='update.php'> Check your updated List </a>";
@@ -106,8 +86,6 @@ if(isset($_POST['submit'])){
     else { echo "Record Not Deleted";}
     }
 $conn->close();
-
-
 
 ?>
 
