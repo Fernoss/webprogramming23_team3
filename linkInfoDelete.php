@@ -16,7 +16,14 @@ $row= mysqli_fetch_array($result);
 <section style="padding-top:100px; padding-bottom:100px; content-align:center;">
 <div class="container wrapper">
     
-    <h1>Edit page - Organizational Information for the Customers</h1>
+<div class="row">
+      <div class="col-md-10">
+    <h2>Delete Organizational Information for the Customers</h2>
+      </div>
+      <div class="col-md-2">
+      <a href="../webprogramming23_team3/linkInfoView.php" class="btn btn-primary" style="background-color:#ff6e31; color:black;">View company detail</a>
+      </div>
+    </div>
 <form class="needs-validation" novalidate method="POST" action="linkInfoView.php">
   <div class="form-row">
     <div class="col-md-4 mb-3">
@@ -73,7 +80,7 @@ $row= mysqli_fetch_array($result);
   </div>
   <div class="col-md-6 mb-3">
   <input type="hidden" id="date" name="date" value=" <?php echo date("Y-m-d h:i:s A");?>">
-  <input type="submit" class="btn btn-primary" value="Delete" name="delete" id="delete">
+  <input type="submit" class="btn btn-primary" value="Delete" name="submit" id="submit">
   </div>
 </form>
 </div>
@@ -88,11 +95,11 @@ $conn->close();
 <?php 
 include("db.php");
 
-if(isset($_POST['delete'])){
+if(isset($_POST['submit'])){
     $query = mysqli_query($conn,"DELETE FROM shammi_linkinfo where linkId='$_GET[id]'");
     if($query){
-        echo "Record Deleted with id: $a <br>";
-        echo "<a href='update.php'> Check your updated List </a>";
+        echo "Record Deleted with id: $_GET[id] <br>";
+        //echo "<a href='update.php'> Check your updated List </a>";
         // if you want to redirect to update page after updating
         //header("location: update.php");
     }
