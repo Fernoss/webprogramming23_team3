@@ -1,14 +1,21 @@
 <?php 
 
 session_start(); 
-	
-include("header.php");
+
+include("../webprogramming23_team3/header.php");
+include("../webprogramming23_team3/db.php");
 ?>
 <section style="padding-top:100px; padding-bottom:100px; content-align:center;">
 <div class="container wrapper">
-    
-    <h1>Organizational Information for the Customers</h1>
-<form class="needs-validation" novalidate method="POST">
+    <div class="row">
+      <div class="col-md-10">
+    <h2>Insert Organizational Information for the Customers</h2>
+      </div>
+      <div class="col-md-2">
+      <a href="../webprogramming23_team3/linkInfoView.php" class="btn btn-primary" style="background-color:#ff6e31; color:black;">View company detail</a>
+      </div>
+    </div>
+<form class="needs-validation"  method="POST" action="">
   <div class="form-row">
     <div class="col-md-4 mb-3">
       <label for="validationCustom01">Company Name</label>
@@ -20,7 +27,7 @@ include("header.php");
 
     <div class="col-md-4 mb-3">
       <label for="validationCustom01">City</label>
-      <input type="text" class="form-control" id="comCity" name="comCity" placeholder="Company Name"  required>
+      <input type="text" class="form-control" id="comCity" name="comCity" placeholder="City"  required>
       <div class="valid-feedback">
         Looks good!
       </div>
@@ -63,8 +70,9 @@ include("header.php");
     </div>
   </div>
   <div class="col-md-6 mb-3">
-  <input type="hidden" id="date" name="date" value=" <?php echo date("Y-m-d h:i:s A");?>">
+  <input type="hidden" id="Date" name="Date" value=" <?php echo date("Y-m-d h:i:s A");?>">
   <input type="submit" class="btn btn-primary" value="Submit" name="Submit" id="Submit">
+  
   </div>
 </form>
 </div>
@@ -80,19 +88,20 @@ $distance=$_POST['distance'];
 $url=$_POST['url'];
 $picture=$_POST['picture'];
 $desc=$_POST['desc'];
-$dateTime=$_POST['date'];
+$dateTime=$_POST['Date'];
 $email=$_SESSION['username'];
 
-include("db.php");
+
 
 $sql="INSERT INTO shammi_linkinfo (orgName, city, distance, url, image,description, email, date) 
-  VALUES ('$cName','$cCity', '$distance','$url', '$picture', '$desc', '$email','$dateTime')";
-
-       
+  VALUES ('$cName','$cCity', '$distance','$url', '$picture', '$desc', '$email', '$dateTime')";
+   
 if($conn->query($sql)==TRUE){
+
   echo("<SCRIPT LANGUAGE='JavaScript'>
   window.alert('Successfully Registered!')
   </SCRIPT>");
+  
   
   }
 
@@ -101,6 +110,7 @@ if($conn->query($sql)==TRUE){
     }
 
 }
+
 
 
 ?>
