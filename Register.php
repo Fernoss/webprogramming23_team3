@@ -119,7 +119,7 @@ $email=$_POST['email'];
 $pw=$_POST['pswd'];
 $category=$_POST['category'];
 
-include("db.php");
+include("../webprogramming23_team3/db.php");
 
 $sql="INSERT INTO shammi_login (fName, lName, email, password, category) 
   VALUES ('$fName','$lName', '$email','$pw', '$category')";
@@ -134,10 +134,7 @@ if($conn->query($sql)==TRUE){
   }
 
     else {
-            //echo "Error :".$conn->error; 
-            echo("<SCRIPT LANGUAGE='JavaScript'>
-  window.alert($conn->error)
-  </SCRIPT>");
+            echo "Error :".$conn->error; 
     }
 
 }
@@ -147,42 +144,26 @@ if($conn->query($sql)==TRUE){
 
 <!-- Validate the form data-->
 <script type = "text/javascript">
-    function validateform(){  
+function validateform(){  
 
 //validating name
 let name=document.myform.fName.value;  
 // to check if name is empty of not  
 if (name==null || name==""){  
-  alert("document.getElementById("myH1").style.color = "red";");  
+  alert("Name can't be blank");  
   return false;  
 }
 
-else if(!isNaN(name)){
-  alert("Only characters not numbers");  
-  return false;
-}
-// to check if first name has atleast 5 characters
-else if(name.length<2){  
-    alert("Name can't less than 2 characters");  
-    return false;  
-  }
-// // to ensure name cannot be more than 5 characters
 
+//not allow to enter number
 let lastname=document.myform.lName.value;  
 // to check if last name is empty of not  
 if (lastname==null || lastname==""){  
-  echo "<div class='alertMessage'>";
-   echo "<span class='closeBtn' onclick='this.parentElement.style.display=none;'>×</span>";
-   echo" <strong>This is an alert message.</strong> Click on the close button to dismiss it.";
-    echo "</div>";
-  //alert("Last Name can't be blank");  
+  alert("Last Name can't be blank");  
   return false;  
 }
 
-else if(!isNaN(lastname)){
-  alert("Only characters not numbers");  
-  return false;
-}
+
 
  //validating email 
  let email=document.myform.email.value;
