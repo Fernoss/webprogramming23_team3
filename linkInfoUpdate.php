@@ -5,7 +5,7 @@ session_start();
 include("../webprogramming23_team3/header.php");
 include("../webprogramming23_team3/db.php");
 $a = $_GET['id'];
-echo $_GET['id'];
+
 //$sql = " SELECT * FROM shammi_linkinfo WHERE linkId='$_GET[id]'";
 $result = mysqli_query($conn," SELECT * FROM shammi_linkinfo WHERE linkId='$_GET[id]'");
 
@@ -18,7 +18,14 @@ $row= mysqli_fetch_array($result);
 <section style="padding-top:100px; padding-bottom:100px; content-align:center;">
 <div class="container wrapper">
     
-    <h1>Edit page - Organizational Information for the Customers</h1>
+<div class="row">
+      <div class="col-md-10">
+    <h2>Edit Organizational Information for the Customers</h2>
+      </div>
+      <div class="col-md-2">
+      <a href="../webprogramming23_team3/linkInfoView.php" class="btn btn-primary" style="background-color:#ff6e31; color:black;">View company detail</a>
+      </div>
+    </div>
 <form class="needs-validation" novalidate method="POST" action="">
   <div class="form-row">
     <div class="col-md-4 mb-3">
